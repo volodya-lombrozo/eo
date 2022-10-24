@@ -52,9 +52,9 @@ import org.xembly.Xembler;
 /**
  * Parse EO to XML.
  *
- * @since 0.1
  * @todo #1230:30min Make number of threads used in thread executor within {@link #exec()} method
- *  configurable via mojo parameter `threads`. Default value should be 4.
+ * configurable via mojo parameter `threads`. Default value should be 4.
+ * @since 0.1
  */
 @Mojo(
     name = "parse",
@@ -82,6 +82,7 @@ public final class ParseMojo extends SafeMojo {
 
     /**
      * EO cache directory.
+     *
      * @checkstyle MemberNameCheck (7 lines)
      */
     @Parameter(property = "eo.cache")
@@ -90,6 +91,7 @@ public final class ParseMojo extends SafeMojo {
 
     /**
      * Whether we should fail on parsing error.
+     *
      * @checkstyle MemberNameCheck (7 lines)
      * @since 0.23.0
      */
