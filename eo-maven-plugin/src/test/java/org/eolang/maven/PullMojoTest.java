@@ -94,6 +94,28 @@ final class PullMojoTest {
         );
     }
 
+    @Test
+    void pullsUsingOfflineHash(@TempDir final Path temp) {
+        final Path target = temp.resolve("target");
+        final Path foreign = temp.resolve("eo-foreign.json");
+        Catalogs.INSTANCE.make(foreign, "json")
+            .add("org.eolang.io.stdout")
+            .set(AssembleMojo.ATTR_SCOPE, "compile")
+            .set(AssembleMojo.ATTR_VERSION, "*.*.*");
+        new Moja<>(PullMojo.class)
+            .with("targetDir", target.toFile())
+            .with("foreign", foreign.toFile())
+            .with("foreignFormat", "json")
+            .with("objectionary", this.dummy())
+            .with("hash", "1.0.0")
+            .with("offlineHash", "*.*.*:abcdefg")
+            .execute();
+        MatcherAssert.assertThat(
+            new LinkedList<>(new MnJson(foreign).read()).getFirst().get("hash"),
+            Matchers.equalTo("abcdefg")
+        );
+    }
+
     /**
      * Dummy Objectionary.
      *
