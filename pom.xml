@@ -27,7 +27,7 @@ SOFTWARE.
   <parent>
     <groupId>com.jcabi</groupId>
     <artifactId>parent</artifactId>
-    <version>0.63.2</version>
+    <version>0.64.1</version>
   </parent>
   <groupId>org.eolang</groupId>
   <artifactId>eo-parent</artifactId>
@@ -86,6 +86,12 @@ SOFTWARE.
       <url>https://github.com/objectionary/eo</url>
     </site>
   </distributionManagement>
+  <properties>
+    <!-- This is required for later correct replacement of argLine -->
+    <argLine/>
+    <!-- This is the size of the stack, which you can modify from command line -->
+    <stack-size>8M</stack-size>
+  </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -97,7 +103,7 @@ SOFTWARE.
       <dependency>
         <groupId>org.cactoos</groupId>
         <artifactId>cactoos</artifactId>
-        <version>0.54.0</version>
+        <version>0.55.0</version>
       </dependency>
       <dependency>
         <groupId>com.jcabi.incubator</groupId>
@@ -117,7 +123,7 @@ SOFTWARE.
       <dependency>
         <groupId>com.yegor256</groupId>
         <artifactId>xsline</artifactId>
-        <version>0.15.0</version>
+        <version>0.18.0</version>
       </dependency>
       <dependency>
         <groupId>org.junit</groupId>
@@ -147,7 +153,7 @@ SOFTWARE.
       <dependency>
         <groupId>org.junit-pioneer</groupId>
         <artifactId>junit-pioneer</artifactId>
-        <version>1.7.1</version>
+        <version>1.7.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -163,7 +169,7 @@ SOFTWARE.
       <dependency>
         <groupId>com.jcabi</groupId>
         <artifactId>jcabi-xml</artifactId>
-        <version>0.25.4</version>
+        <version>0.26.0</version>
       </dependency>
       <dependency>
         <groupId>com.jcabi</groupId>
@@ -173,7 +179,7 @@ SOFTWARE.
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-reload4j</artifactId>
-        <version>2.0.3</version>
+        <version>2.0.5</version>
       </dependency>
       <dependency>
         <groupId>log4j</groupId>
@@ -245,7 +251,13 @@ SOFTWARE.
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.1</version>
-          <configuration combine.self="override"/>
+          <configuration combine.self="override">
+            <source>8</source>
+            <target>8</target>
+            <compilerArgs>
+              <arg>-Xpkginfo:always</arg>
+            </compilerArgs>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.antlr</groupId>

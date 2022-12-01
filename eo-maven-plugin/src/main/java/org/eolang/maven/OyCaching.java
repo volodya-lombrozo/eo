@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import org.cactoos.Input;
 import org.cactoos.io.TeeInput;
+import org.eolang.maven.hash.CommitHash;
 
 /**
  * Objectionary which caches objects locally.
@@ -49,6 +50,20 @@ final class OyCaching implements Objectionary {
      * Remote Objectionary.
      */
     private final Objectionary primary;
+
+    /**
+     * Ctor.
+     * @param hash Commit hash.
+     * @param cache Cache directory.
+     * @param primary Primary objectionary.
+     */
+    OyCaching(
+        final CommitHash hash,
+        final Path cache,
+        final Objectionary primary
+    ) {
+        this(hash.value(), cache, primary);
+    }
 
     /**
      * Ctor.

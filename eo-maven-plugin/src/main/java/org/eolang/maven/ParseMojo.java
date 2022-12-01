@@ -37,6 +37,7 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -101,6 +102,13 @@ public final class ParseMojo extends SafeMojo {
         defaultValue = "true")
     private boolean failOnError = true;
 
+    /**
+     * Number of parallel threads.
+     */
+    @SuppressWarnings("PMD.ImmutableField")
+    @Parameter(property = "eo.threads", defaultValue = "4")
+    private int threads = 4;
+
     @Override
     public void exec() throws IOException {
         final Collection<Tojo> tojos = this.scopedTojos().select(
@@ -117,7 +125,7 @@ public final class ParseMojo extends SafeMojo {
                         if (xmir.toFile().lastModified() >= src.toFile().lastModified()) {
                             Logger.debug(
                                 this, "Already parsed %s to %s (it's newer than the source)",
-                                tojo.get(Tojos.KEY), new Home().rel(xmir)
+                                tojo.get(Tojos.KEY), new Rel(xmir)
                             );
                             return;
                         }
@@ -143,22 +151,17 @@ public final class ParseMojo extends SafeMojo {
                 }
             );
         try {
-            Executors.newFixedThreadPool(4)
-                .invokeAll(tasks)
-                .forEach(
-                    completed -> {
-                        try {
-                            completed.get();
-                        } catch (final InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        } catch (final ExecutionException ex) {
-                            throw new IllegalArgumentException(
-                                ex.getCause().getMessage(),
-                                ex
-                            );
-                        }
-                    }
-                );
+            for (final Future<Object> completed : Executors.newFixedThreadPool(this.threads)
+                .invokeAll(tasks)) {
+                try {
+                    completed.get();
+                } catch (final ExecutionException ex) {
+                    throw new IllegalArgumentException(
+                        ex.getCause().getMessage(),
+                        ex
+                    );
+                }
+            }
         } catch (final InterruptedException ex) {
             Thread.currentThread().interrupt();
             throw new IllegalStateException(
@@ -251,7 +254,7 @@ public final class ParseMojo extends SafeMojo {
         tojo.set(AssembleMojo.ATTR_XMIR, target.toAbsolutePath().toString());
         Logger.debug(
             this, "Parsed %s to %s",
-            new Home().rel(source), new Home().rel(target)
+            new Rel(source), new Rel(target)
         );
     }
 }

@@ -1,5 +1,5 @@
 xsls:
-  - /org/eolang/parser/errors/duplicate-names.xsl
+  - /org/eolang/parser/critical-errors/duplicate-names.xsl
   - /org/eolang/parser/errors/self-naming.xsl
   - /org/eolang/parser/errors/same-line-names.xsl
   - /org/eolang/parser/add-refs.xsl
@@ -17,10 +17,10 @@ tests:
   - //o[@base='first' and @line='17' and @ref='1']
 eo: |
   [x a] > first
-    (stdout x)
+    stdout x
     second > hello
       third > x
-        (stdout "Hi")
+        stdout "Hi"
       one
         x
         two

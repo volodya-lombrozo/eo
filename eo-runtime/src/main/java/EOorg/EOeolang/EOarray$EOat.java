@@ -60,8 +60,8 @@ public class EOarray$EOat extends PhDefault {
                     final int idx = new Param(rho, "i").strong(Long.class).intValue();
                     if (array.length <= idx) {
                         throw new ExFailure(
-                            "Can't at() the %dth element of the array, there are just %d of them",
-                            idx, array.length
+                            "Can't #at(%d) the %dth element of the array, there are just %d of them",
+                            idx, idx + 1, array.length
                         );
                     }
                     return array[idx];

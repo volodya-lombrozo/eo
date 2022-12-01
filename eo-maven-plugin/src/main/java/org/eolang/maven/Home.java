@@ -24,10 +24,8 @@
 package org.eolang.maven;
 
 import com.jcabi.log.Logger;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -42,12 +40,14 @@ import org.cactoos.scalar.IoChecked;
 import org.cactoos.scalar.LengthOf;
 
 /**
- * Class for saving and loading files.
+ * Base location for files.
  *
  * @since 0.27
+ * @todo #1352:30min Prohibit absolute paths in methods `save`, `load`, `exists`.
+ *  Throw an exception in case absolut path is given for these methods.
  */
 @SuppressWarnings("PMD.TooManyMethods")
-final class Home {
+public final class Home {
     /**
      * Current working directory.
      */
@@ -56,7 +56,7 @@ final class Home {
     /**
      * Ctor.
      */
-    Home() {
+    public Home() {
         this(Paths.get(""));
     }
 
@@ -65,7 +65,7 @@ final class Home {
      *
      * @param path Path
      */
-    Home(final Path path) {
+    public Home(final Path path) {
         this.cwd = path;
     }
 
@@ -73,15 +73,15 @@ final class Home {
      * Saving input.
      *
      * @param input Input
-     * @param path Path to file
+     * @param path Cwd-relative path to file
      * @throws IOException If fails
      */
     public void save(final Input input, final Path path) throws IOException {
-        final File dir = path.toFile().getParentFile();
-        if (dir.mkdirs()) {
+        final Path target = this.absolute(path);
+        if (target.toFile().getParentFile().mkdirs()) {
             Logger.debug(
                 this, "Directory created: %s",
-                this.rel(path.getParent())
+                new Rel(target.getParent())
             );
         }
         try {
@@ -89,19 +89,19 @@ final class Home {
                 new LengthOf(
                     new TeeInput(
                         input,
-                        new OutputTo(path)
+                        new OutputTo(target)
                     )
                 )
             ).value();
             Logger.debug(
                 Home.class, "File %s saved (%d bytes)",
-                this.rel(path), bytes
+                target, bytes
             );
         } catch (final IOException ex) {
             throw new IOException(
                 String.format(
                     "Failed while trying to save to %s",
-                    this.rel(path)
+                    target
                 ),
                 ex
             );
@@ -112,7 +112,7 @@ final class Home {
      * Saving string.
      *
      * @param str String
-     * @param path Path to file
+     * @param path Cwd-relative path to file
      * @throws IOException If fails
      */
     public void save(final String str, final Path path) throws IOException {
@@ -123,7 +123,7 @@ final class Home {
      * Saving text.
      *
      * @param txt Text
-     * @param path Path to file
+     * @param path Cwd-relative path to file
      * @throws IOException If fails
      */
     public void save(final Text txt, final Path path) throws IOException {
@@ -134,7 +134,7 @@ final class Home {
      * Saving stream.
      *
      * @param stream Input stream
-     * @param path Path to file
+     * @param path Cwd-relative path to file
      * @throws IOException If fails
      */
     public void save(final InputStream stream, final Path path) throws IOException {
@@ -145,7 +145,7 @@ final class Home {
      * Saving bytes.
      *
      * @param bytes Byte array
-     * @param path Path to file
+     * @param path Cwd-relative path to file
      * @throws IOException If fails
      */
     public void save(final byte[] bytes, final Path path) throws IOException {
@@ -153,54 +153,34 @@ final class Home {
     }
 
     /**
-     * Make relative name from path.
-     *
-     * @param file The path of the file or dir
-     * @return Relative name to CWD
-     */
-    public String rel(final Path file) {
-        String path = file.toAbsolutePath().toString();
-        if (path.equals(this.cwd.toString())) {
-            path = "./";
-        } else if (path.startsWith(this.cwd.toString())) {
-            path = String.format(
-                "./%s",
-                path.substring(this.cwd.toString().length() + 1)
-            );
-        }
-        return path;
-    }
-
-    /**
      * Check if exists.
      *
-     * @param path Path
+     * @param path Cwd-relative path to file
      * @return True if exists
      */
     public boolean exists(final Path path) {
-        return Files.exists(this.path(path));
+        return Files.exists(this.absolute(path));
     }
 
     /**
      * Load bytes from file by path.
      *
-     * @param path Path to the file
+     * @param path Cwd-relative path to file
      * @return Bytes of file
      * @throws IOException if method can't find the file by path or
      *  if some exception happens during reading the file
      */
     public Bytes load(final Path path) throws IOException {
-        return new BytesOf(Files.readAllBytes(this.path(path)));
+        return new BytesOf(Files.readAllBytes(this.absolute(path)));
     }
 
     /**
-     * Path modification.
+     * Absolute path to a file.
      *
-     * @param path Path
-     * @return Modified path (without bad symbols)
+     * @param path Cwd-relative path to file
+     * @return Absolute path
      */
-    private static Path path(final Path path) {
-        final byte[] bytes = path.toString().getBytes(StandardCharsets.UTF_8);
-        return Paths.get(new String(bytes, StandardCharsets.UTF_8));
+    public Path absolute(final Path path) {
+        return this.cwd.resolve(path);
     }
 }

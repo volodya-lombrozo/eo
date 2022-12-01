@@ -27,6 +27,7 @@ import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import org.cactoos.Input;
 import org.cactoos.io.InputOf;
+import org.eolang.maven.hash.CommitHash;
 
 /**
  * Objectionary stored locally.
@@ -46,6 +47,15 @@ final class OyHome implements Objectionary {
 
     /**
      * Ctor.
+     * @param hash Commit hash.
+     * @param path Root.
+     */
+    OyHome(final CommitHash hash, final Path path) {
+        this(hash.value(), path);
+    }
+
+    /**
+     * Ctor.
      * @param ver Version.
      * @param path Root.
      */
@@ -58,7 +68,7 @@ final class OyHome implements Objectionary {
     public String toString() {
         return String.format(
             "%s (%s)",
-            new Home().rel(this.home), this.version
+            new Rel(this.home), this.version
         );
     }
 

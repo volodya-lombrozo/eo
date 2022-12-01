@@ -27,6 +27,7 @@ import com.jcabi.log.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.regex.Pattern;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -92,7 +93,11 @@ public final class CopyMojo extends SafeMojo {
      *
      * @checkstyle MemberNameCheck (7 lines)
      */
-    @Parameter(property = "eo.version", required = true, defaultValue = "${project.version}")
+    @Parameter(
+        property = "eo.version",
+        required = true,
+        defaultValue = "${project.version}"
+    )
     private String version;
 
     @Override
@@ -100,11 +105,11 @@ public final class CopyMojo extends SafeMojo {
         final Path target = this.outputDir.toPath().resolve(CopyMojo.DIR);
         final Collection<Path> sources = new Walk(this.sourcesDir.toPath());
         for (final Path src : sources) {
-            new Home().save(
+            new Home(target).save(
                 CopyMojo.REPLACE
                     .matcher(new UncheckedText(new TextOf(new InputOf(src))).asString())
                     .replaceAll(String.format("$1:%s$2", this.version)),
-                target.resolve(
+                Paths.get(
                     src.toAbsolutePath().toString().substring(
                         this.sourcesDir.toPath().toAbsolutePath().toString().length() + 1
                     )
@@ -114,13 +119,13 @@ public final class CopyMojo extends SafeMojo {
         if (sources.isEmpty()) {
             Logger.warn(
                 this, "No sources copied from %s to %s",
-                new Home().rel(this.sourcesDir.toPath()), new Home().rel(target)
+                new Rel(this.sourcesDir), new Rel(target)
             );
         } else {
             Logger.info(
                 this, "%d source(s) copied from %s to %s",
-                sources.size(), new Home().rel(this.sourcesDir.toPath()),
-                new Home().rel(target)
+                sources.size(), new Rel(this.sourcesDir),
+                new Rel(target)
             );
         }
     }

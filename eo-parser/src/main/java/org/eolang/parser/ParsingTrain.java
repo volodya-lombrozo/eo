@@ -28,7 +28,7 @@ import com.jcabi.xml.XSL;
 import com.jcabi.xml.XSLDocument;
 import com.yegor256.xsline.StAfter;
 import com.yegor256.xsline.StLambda;
-import com.yegor256.xsline.TrBulk;
+import com.yegor256.xsline.StSequence;
 import com.yegor256.xsline.TrClasspath;
 import com.yegor256.xsline.TrDefault;
 import com.yegor256.xsline.TrEnvelope;
@@ -40,6 +40,9 @@ import com.yegor256.xsline.TrLogged;
  * Train of XSL shifts.
  *
  * @since 0.1
+ * @todo #1024:30min Need to figure out, which errors need to be
+ *   "critical", same as "duplicate-names" error. After that
+ *   move them to "critical-errors" directory.
  */
 public final class ParsingTrain extends TrEnvelope {
 
@@ -56,7 +59,7 @@ public final class ParsingTrain extends TrEnvelope {
     private static final String[] SHEETS = {
         "/org/eolang/parser/errors/not-empty-atoms.xsl",
         "/org/eolang/parser/errors/middle-varargs.xsl",
-        "/org/eolang/parser/errors/duplicate-names.xsl",
+        "/org/eolang/parser/critical-errors/duplicate-names.xsl",
         "/org/eolang/parser/errors/many-free-attributes.xsl",
         "/org/eolang/parser/errors/broken-aliases.xsl",
         "/org/eolang/parser/errors/duplicate-aliases.xsl",
@@ -66,6 +69,7 @@ public final class ParsingTrain extends TrEnvelope {
         "/org/eolang/parser/add-refs.xsl",
         "/org/eolang/parser/wrap-method-calls.xsl",
         "/org/eolang/parser/expand-qqs.xsl",
+        "/org/eolang/parser/add-probes.xsl",
         "/org/eolang/parser/vars-float-up.xsl",
         "/org/eolang/parser/add-refs.xsl",
         "/org/eolang/parser/warnings/unsorted-metas.xsl",
@@ -77,13 +81,14 @@ public final class ParsingTrain extends TrEnvelope {
         "/org/eolang/parser/errors/broken-refs.xsl",
         "/org/eolang/parser/errors/unknown-names.xsl",
         "/org/eolang/parser/errors/noname-attributes.xsl",
-        "/org/eolang/parser/errors/duplicate-names.xsl",
+        "/org/eolang/parser/critical-errors/duplicate-names.xsl",
         "/org/eolang/parser/warnings/duplicate-metas.xsl",
         "/org/eolang/parser/warnings/mandatory-package-meta.xsl",
         "/org/eolang/parser/warnings/correct-package-meta.xsl",
         "/org/eolang/parser/errors/unused-aliases.xsl",
         "/org/eolang/parser/errors/data-objects.xsl",
         "/org/eolang/parser/warnings/unit-test-without-phi.xsl",
+        "/org/eolang/parser/set-locators.xsl",
     };
 
     /**
@@ -92,27 +97,29 @@ public final class ParsingTrain extends TrEnvelope {
     @SuppressWarnings("unchecked")
     public ParsingTrain() {
         super(
-            new TrBulk<>(
-                new TrClasspath<>(
-                    new TrLambda(
-                        new TrFast(
-                            new TrLogged(
-                                new TrDefault<>()
-                            )
-                        ),
-                        shift -> new StAfter(
-                            shift,
-                            new StLambda(
-                                shift::uid,
-                                (pos, xml) -> ParsingTrain.EACH.with("step", pos)
-                                    .with("sheet", shift.uid())
-                                    .transform(xml)
-                            )
+            new TrLambda(
+                new TrFast(
+                    new TrLogged(
+                        new TrClasspath<>(
+                            new TrDefault<>(),
+                            ParsingTrain.SHEETS
+                        ).back()
+                    )
+                ),
+                shift -> new StSequence(
+                    shift.uid(),
+                    xml -> xml.nodes("//error[@severity='critical']").isEmpty(),
+                    new StAfter(
+                        shift,
+                        new StLambda(
+                            shift::uid,
+                            (pos, xml) -> ParsingTrain.EACH.with("step", pos)
+                                .with("sheet", shift.uid())
+                                .transform(xml)
                         )
-                    ),
-                    ParsingTrain.SHEETS
+                    )
                 )
-            ).back().back()
+            )
         );
     }
 

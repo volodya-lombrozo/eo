@@ -38,7 +38,7 @@ SOFTWARE.
       <groupId>org.eolang</groupId>
       <artifactId>eo-runtime</artifactId>
       <!-- This version is intentionally lower than the current version of the project -->
-      <version>0.28.10</version>
+      <version>0.28.11</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -98,7 +98,7 @@ SOFTWARE.
     <dependency>
       <groupId>org.apache.maven.plugin-tools</groupId>
       <artifactId>maven-plugin-annotations</artifactId>
-      <version>3.6.4</version>
+      <version>3.7.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -169,7 +169,7 @@ SOFTWARE.
       <groupId>javax.json</groupId>
       <artifactId>javax.json-api</artifactId>
       <version>1.1.4</version>
-      <scope>runtime</scope>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.glassfish</groupId>
@@ -192,8 +192,16 @@ SOFTWARE.
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-reload4j</artifactId>
-      <!-- version from parent POM -->
-      <scope>test</scope>
+      <version>2.0.5</version>
+      <scope>provided</scope>
+      <!-- This dependency must preceed jcabi-maven-slf4j in order
+      to enable configurable Log4j logging during testing -->
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.reload4j</groupId>
+      <artifactId>reload4j</artifactId>
+      <version>1.2.24</version>
+      <scope>runtime</scope>
       <!-- This dependency must preceed jcabi-maven-slf4j in order
       to enable configurable Log4j logging during testing -->
     </dependency>
@@ -214,6 +222,7 @@ SOFTWARE.
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
+          <argLine>@{argLine} -Xss${stack-size}</argLine>
           <systemPropertyVariables>
             <runtime.jar>${org.eolang:eo-runtime:jar}</runtime.jar>
             <runtime.path>${project.basedir}/../eo-runtime</runtime.path>

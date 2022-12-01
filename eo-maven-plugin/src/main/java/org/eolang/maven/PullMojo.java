@@ -34,6 +34,12 @@ import java.util.Collection;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.eolang.maven.hash.ChCached;
+import org.eolang.maven.hash.ChNarrow;
+import org.eolang.maven.hash.ChPattern;
+import org.eolang.maven.hash.ChRemote;
+import org.eolang.maven.hash.ChText;
+import org.eolang.maven.hash.CommitHash;
 
 /**
  * Pull EO XML files from Objectionary and parse them into XML.
@@ -54,14 +60,16 @@ public final class PullMojo extends SafeMojo {
 
     /**
      * The Git hash to pull objects from, in objectionary.
+     *
      * @since 0.21.0
      */
     @SuppressWarnings("PMD.ImmutableField")
-    @Parameter(property = "eo.hash", required = true, defaultValue = "master")
-    private String hash = "master";
+    @Parameter(property = "eo.tag", required = true, defaultValue = "master")
+    private String tag = "master";
 
     /**
      * Pull again even if the .eo file is already present?
+     *
      * @checkstyle MemberNameCheck (7 lines)
      * @since 0.10.0
      */
@@ -70,11 +78,30 @@ public final class PullMojo extends SafeMojo {
 
     /**
      * Target directory.
+     *
      * @checkstyle MemberNameCheck (7 lines)
      */
     @Parameter(property = "eo.home")
     @SuppressWarnings("PMD.ImmutableField")
     private Path outputPath = Paths.get(System.getProperty("user.home")).resolve(".eo");
+
+    /**
+     * Read hashes from local file.
+     *
+     * @checkstyle MemberNameCheck (7 lines)
+     */
+    @Parameter(property = "offlineHashFile")
+    private Path offlineHashFile;
+
+    /**
+     * Return hash by pattern.
+     * -DofflineHash=0.*.*:abc2sd3
+     * -DofflineHash=0.2.7:abc2sd3,0.2.8:s4se2fe
+     *
+     * @checkstyle MemberNameCheck (7 lines)
+     */
+    @Parameter(property = "offlineHash")
+    private String offlineHash;
 
     /**
      * The objectionary.
@@ -88,17 +115,24 @@ public final class PullMojo extends SafeMojo {
             row -> !row.exists(AssembleMojo.ATTR_EO)
                 && !row.exists(AssembleMojo.ATTR_XMIR)
         );
-        final HashOfTag tag = new HashOfTag(this.hash);
+        final CommitHash hash;
+        if (this.offlineHashFile == null && this.offlineHash == null) {
+            hash = new ChCached(new ChRemote(this.tag));
+        } else if (this.offlineHash == null) {
+            hash = new ChCached(new ChText(this.offlineHashFile, this.tag));
+        } else {
+            hash = new ChCached(new ChPattern(this.offlineHash, this.tag));
+        }
         if (this.objectionary == null) {
             this.objectionary = new OyFallbackSwap(
                 new OyHome(
-                    tag.narrow(),
+                    new ChNarrow(hash),
                     this.outputPath
                 ),
                 new OyCaching(
-                    tag.narrow(),
+                    new ChNarrow(hash),
                     this.outputPath,
-                    PullMojo.remote(tag.hash())
+                    PullMojo.remote(hash)
                 ),
                 this.forceUpdate()
             );
@@ -111,7 +145,7 @@ public final class PullMojo extends SafeMojo {
                 );
                 tojo.set(
                     AssembleMojo.ATTR_HASH,
-                    tag.narrow()
+                    new ChNarrow(hash).value()
                 );
             }
             Logger.info(
@@ -123,14 +157,15 @@ public final class PullMojo extends SafeMojo {
 
     /**
      * Create remote repo.
-     * @param full Full Git hash
+     *
+     * @param hash Full Git hash
      * @return Objectionary
      */
-    private static Objectionary remote(final String full) {
+    private static Objectionary remote(final CommitHash hash) {
         Objectionary obj;
         try {
             InetAddress.getByName("home.objectionary.com").isReachable(1000);
-            obj = new OyRemote(full);
+            obj = new OyRemote(hash);
         } catch (final IOException ex) {
             obj = new OyEmpty();
         }
@@ -139,6 +174,7 @@ public final class PullMojo extends SafeMojo {
 
     /**
      * Is force update option enabled.
+     *
      * @return True if option enabled and false otherwise
      */
     private boolean forceUpdate() {
@@ -153,25 +189,25 @@ public final class PullMojo extends SafeMojo {
      * @throws IOException If fails
      */
     private Path pull(final String name) throws IOException {
+        final Path dir = this.targetDir.toPath().resolve(PullMojo.DIR);
         final Path src = new Place(name).make(
-            this.targetDir.toPath().resolve(PullMojo.DIR), "eo"
+            dir, "eo"
         );
         if (src.toFile().exists() && !this.overWrite) {
             Logger.debug(
                 this, "The object '%s' already pulled to %s (and 'overWrite' is false)",
-                name, new Home().rel(src)
+                name, new Rel(src)
             );
         } else {
-            new Home().save(
+            new Home(dir).save(
                 this.objectionary.get(name),
-                src
+                dir.relativize(src)
             );
             Logger.debug(
                 this, "The sources of the object '%s' pulled to %s",
-                name, new Home().rel(src)
+                name, new Rel(src)
             );
         }
         return src;
     }
-
 }
