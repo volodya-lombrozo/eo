@@ -32,6 +32,10 @@ SOFTWARE.
   <groupId>org.eolang</groupId>
   <artifactId>not.all.goals</artifactId>
   <version>@project.version@</version>
+  <description>
+    To run the tests, use:
+    "mvn clean integration-test invoker:run -Dinvoker.test=optimization_benchmark -DskipTests"
+  </description>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
