@@ -23,6 +23,7 @@
  */
 package org.eolang.maven.optimization;
 
+import com.jcabi.log.Logger;
 import com.jcabi.xml.XML;
 import com.jcabi.xml.XMLDocument;
 import java.io.IOException;
@@ -68,6 +69,7 @@ public final class OptCached implements Optimization {
     @Override
     public XML apply(final XML xml) {
         try {
+            Logger.info(this, "Trying to find '%s' in the cache", xml.xpath("/program/@name").get(0));
             final XML optimized;
             if (this.contains(xml)) {
                 optimized = new XMLDocument(this.cached(xml));
@@ -107,6 +109,7 @@ public final class OptCached implements Optimization {
         final Optional<String> hash = xml.xpath("/program/@hash").stream().findFirst();
         final boolean res;
         if (Files.exists(path) && hash.isPresent()) {
+            Logger.info(this, "Found cached program '%s'", path);
             res = new XMLDocument(path).xpath("/program/@hash").stream().findFirst()
                 .equals(hash);
         } else {
