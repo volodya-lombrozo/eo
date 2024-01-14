@@ -24,37 +24,54 @@
 package org.eolang.parser;
 
 import com.jcabi.matchers.XhtmlMatchers;
-import java.io.IOException;
+import com.jcabi.xml.XML;
+import com.jcabi.xml.XMLDocument;
+import com.yegor256.xsline.Xsline;
+import java.security.NoSuchAlgorithmException;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
+import org.xembly.Directives;
+import org.xembly.Xembler;
 
 /**
- * Test cases for {@link PhiSyntax}.
+ * Test case for {@link StHash}.
  *
  * @since 0.35.0
  */
-class PhiSyntaxTest {
+final class StHashTest {
+
     @Test
-    void addsError() throws IOException {
+    void isHashInXml() {
         MatcherAssert.assertThat(
-            "Result XML must contain errors",
-            new PhiSyntax(
-                "empty ↦ Φ.org.eolang.bytes"
-            ).parsed(),
-            XhtmlMatchers.hasXPath(
-                "//errors[count(error)>0]"
-            )
+            "We should get XML, which has new attribute 'hash', but didn't",
+            new Xsline(new StHash()).pass(program()),
+            XhtmlMatchers.hasXPath("/program/@hash")
         );
     }
 
     @Test
-    void containsHash() throws IOException {
+    void checksHash() throws NoSuchAlgorithmException {
         MatcherAssert.assertThat(
-            "Result XML must contain hash",
-            new PhiSyntax(
-                "empty ↦ Φ.org.eolang.bytes"
-            ).parsed(),
-            XhtmlMatchers.hasXPath("/program/@hash")
+            "We should get the same hash code, but didn't",
+            new Xsline(new StHash()).pass(program()),
+            XhtmlMatchers.hasXPath("/program/@hash", new StHash.Hash(program()).getHash())
+        );
+    }
+
+    /**
+     * Generates EO program for tests with specified time and context.
+     * @return XML representation of program.
+     */
+    private static XML program() {
+        return new XMLDocument(
+            new Xembler(
+                new Directives()
+                    .add("program")
+                    .attr("name", "main")
+                    .add("objects")
+                    .attr("object", "10")
+                    .up()
+            ).xmlQuietly()
         );
     }
 }
