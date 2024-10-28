@@ -1,50 +1,2463 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.4.0" size="5398">
+<fb version="0.4.0" size="48375">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <error>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:3502E1:1720C22:2D0C5FA:671F7DEA and timestamp 2024-10-28 12:04:58 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:5B7E3:29C7B9:51CC0F:671F7E27 and timestamp 2024-10-28 12:05:59 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:3502E1:173B5D2:2D407B9:671F7E64 and timestamp 2024-10-28 12:07:00 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:1F6B7E:7CA6D1E:EE7DD43:671F7EA1 and timestamp 2024-10-28 12:08:01 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:5B7E3:2C567B:56D4F2:671F7EDE and timestamp 2024-10-28 12:09:02 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:5B7E3:2D31E0:5883DD:671F7F1B and timestamp 2024-10-28 12:10:03 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:3502E1:1772881:2DAC813:671F7F58 and timestamp 2024-10-28 12:11:04 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:3502E1:1780709:2DC7CCC:671F7F95 and timestamp 2024-10-28 12:12:05 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:5B7E3:2FA64F:5D5175:671F7FD2 and timestamp 2024-10-28 12:13:06 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:3502E1:179BE21:2DFD97E:671F800F and timestamp 2024-10-28 12:14:08 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:3502E1:17A94AC:2E17BC4:671F804D and timestamp 2024-10-28 12:15:09 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:5B7E3:31F91C:61DB8E:671F808A and timestamp 2024-10-28 12:16:10 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
-      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID 6D40:5B7E3:32B555:634B51:671F80C7 and timestamp 2024-10-28 12:17:11 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
+      <v t="S">undefined method `[]' for nil</v>
+      <v t="S">GET https://api.github.com/search/issues?per_page=100&amp;q=repo%3Aobjectionary%2Feolang-paper+type%3Aissue+created%3A2024-09-30..2024-10-12: 403 - You have exceeded a secondary rate limit. Please wait a few minutes before you try again. If you reach out to GitHub Support for help, please include the request ID F400:2A44BF:42DAF7:8100B2:671F994F. // See: https://docs.github.com/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits</v>
+      <v t="S">GET https://api.github.com/repos/objectionary/eo/commits/83e7ffdd85379db053efb255da77502f1f5bf58c: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID F400:23F0EF:8F49:10D04:671F999E and timestamp 2024-10-28 14:03:10 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
+      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID F400:23F0EF:12FAE:2406E:671F99DB and timestamp 2024-10-28 14:04:11 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
+      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID F400:3B26C9:1D205BA:38C381C:671F9A17 and timestamp 2024-10-28 14:05:11 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
+      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID F400:2A44BF:46C1C4:888A57:671F9A54 and timestamp 2024-10-28 14:06:12 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
+      <v t="S">GET https://api.github.com/users/objectionary/repos?per_page=100: 403 - API rate limit exceeded for site ID installation. If you reach out to GitHub Support for help, please include the request ID F400:23F0EF:3F620:79E63:671F9A90 and timestamp 2024-10-28 14:07:12 UTC. // See: https://docs.github.com/rest/overview/rate-limits-for-the-rest-api</v>
     </error>
     <removed t="I">8</removed>
-    <seconds t="F">794.479995216</seconds>
+    <seconds t="F">3659.113275537</seconds>
     <version t="S">0.25.2</version>
     <what t="S">judges-summary</what>
-    <when t="T">2024-10-28T12:17:11Z</when>
+    <when t="T">2024-10-28T14:09:03Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
-    <_time t="T">2024-10-28T12:03:57Z</_time>
+    <_time t="T">2024-10-28T13:08:04Z</_time>
     <_version t="S">0.4.0/0.25.2/</_version>
+    <total_forks t="I">228</total_forks>
+    <total_releases t="I">450</total_releases>
+    <total_repositories t="I">51</total_repositories>
+    <total_stars t="I">1381</total_stars>
     <what t="S">dimensions-of-terrain</what>
-    <when t="T">2024-10-28T12:03:57Z</when>
-  </f>
-  <f>
-    <_id t="I">2</_id>
-    <_time t="T">2024-10-28T12:07:00Z</_time>
-    <_version t="S">0.4.0/0.25.2/</_version>
-    <since t="T">2024-09-30T12:07:00Z</since>
-    <what t="S">quality-of-service</what>
-    <when t="T">2024-10-28T12:07:00Z</when>
+    <when t="T">2024-10-28T13:08:04Z</when>
   </f>
   <f>
     <_id t="I">3</_id>
-    <_time t="T">2024-10-28T12:08:01Z</_time>
+    <_time t="T">2024-10-28T13:08:31Z</_time>
     <_version t="S">0.4.0/0.25.2/</_version>
-    <since t="T">2024-09-30T12:08:01Z</since>
+    <branch t="S">renovate/org.codehaus.mojo-exec-maven-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#116 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">43080944878</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">116</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-22T09:41:37Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">4</_id>
+    <_time t="T">2024-10-28T13:08:32Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.codehaus.mojo-exec-maven-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi#116 has been opened by @renovate[bot].</details>
+    <event_id t="I">43079512389</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">116</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-22T09:04:27Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">5</_id>
+    <_time t="T">2024-10-28T13:08:32Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-26.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#115 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42821430708</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">115</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-14T11:39:14Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6</_id>
+    <_time t="T">2024-10-28T13:08:33Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-26.x</branch>
+    <details t="S">The pull request objectionary/aoi#115 has been opened by @renovate[bot].</details>
+    <event_id t="I">42819761057</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">115</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-14T10:49:51Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">7</_id>
+    <_time t="T">2024-10-28T13:08:33Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#114 has been closed by @rultor, with 6 HoC and 2 comments.</details>
+    <event_id t="I">42724463789</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">6</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">114</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-10T11:37:03Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">8</_id>
+    <_time t="T">2024-10-28T13:08:33Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi#114 has been opened by @renovate[bot].</details>
+    <event_id t="I">42722848656</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">114</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-10T10:48:22Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">9</_id>
+    <_time t="T">2024-10-28T13:08:33Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-26.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#113 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42649078864</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">113</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-08T13:40:07Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">10</_id>
+    <_time t="T">2024-10-28T13:08:33Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-26.x</branch>
+    <details t="S">The pull request objectionary/aoi#113 has been opened by @renovate[bot].</details>
+    <event_id t="I">42647541429</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">113</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-08T13:03:11Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">11</_id>
+    <_time t="T">2024-10-28T13:08:33Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#112 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42581916643</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">112</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-06T14:49:52Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">12</_id>
+    <_time t="T">2024-10-28T13:08:34Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi#112 has been opened by @renovate[bot].</details>
+    <event_id t="I">42581142981</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">112</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-06T13:34:49Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">13</_id>
+    <_time t="T">2024-10-28T13:08:34Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-25.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#111 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42248991441</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">111</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-25T08:57:08Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">14</_id>
+    <_time t="T">2024-10-28T13:08:34Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-24.x</branch>
+    <comments t="I">4</comments>
+    <details t="S">The pull request objectionary/aoi#35 has been closed by @renovate[bot], with 2 HoC and 4 comments.</details>
+    <event_id t="I">42247495281</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">35</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-closed</what>
+    <when t="T">2024-09-25T08:15:43Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">15</_id>
+    <_time t="T">2024-10-28T13:08:34Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-25.x</branch>
+    <details t="S">The pull request objectionary/aoi#111 has been opened by @renovate[bot].</details>
+    <event_id t="I">42247494636</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">111</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-25T08:15:42Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">16</_id>
+    <_time t="T">2024-10-28T13:08:34Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/commons-io-commons-io-2.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#110 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42060378753</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">110</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-18T23:51:43Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">17</_id>
+    <_time t="T">2024-10-28T13:08:35Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/commons-io-commons-io-2.x</branch>
+    <details t="S">The pull request objectionary/aoi#110 has been opened by @renovate[bot].</details>
+    <event_id t="I">42059220733</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">110</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-18T22:36:57Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">18</_id>
+    <_time t="T">2024-10-28T13:08:35Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#109 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">41383051728</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">109</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-27T14:52:54Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">19</_id>
+    <_time t="T">2024-10-28T13:08:35Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi#109 has been opened by @renovate[bot].</details>
+    <event_id t="I">41381616254</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">109</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-27T14:17:06Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">20</_id>
+    <_time t="T">2024-10-28T13:08:35Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#108 has been closed by @rultor, with 6 HoC and 2 comments.</details>
+    <event_id t="I">41248871775</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">6</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">108</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-22T12:53:10Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">21</_id>
+    <_time t="T">2024-10-28T13:08:36Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi#108 has been opened by @renovate[bot].</details>
+    <event_id t="I">41246060737</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">108</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-22T11:28:15Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">22</_id>
+    <_time t="T">2024-10-28T13:08:36Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#107 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">41119238107</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">107</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-18T20:37:58Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">23</_id>
+    <_time t="T">2024-10-28T13:08:36Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi#107 has been opened by @renovate[bot].</details>
+    <event_id t="I">41118837273</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">107</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-18T19:48:58Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">24</_id>
+    <_time t="T">2024-10-28T13:08:36Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.codehaus.mojo-exec-maven-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#106 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">40964552977</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">106</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-12T22:41:38Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">25</_id>
+    <_time t="T">2024-10-28T13:08:36Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.codehaus.mojo-exec-maven-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi#106 has been opened by @renovate[bot].</details>
+    <event_id t="I">40963891733</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">106</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-12T22:05:42Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">26</_id>
+    <_time t="T">2024-10-28T13:08:36Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#105 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">40914104891</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">105</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-10T11:37:16Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">27</_id>
+    <_time t="T">2024-10-28T13:08:37Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi#105 has been opened by @renovate[bot].</details>
+    <event_id t="I">40913635380</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">105</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-10T10:33:42Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">28</_id>
+    <_time t="T">2024-10-28T13:08:37Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#104 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">40867533156</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">104</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-08T16:40:57Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">29</_id>
+    <_time t="T">2024-10-28T13:08:37Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi#104 has been opened by @renovate[bot].</details>
+    <event_id t="I">40867200806</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">104</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-08T16:29:02Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">30</_id>
+    <_time t="T">2024-10-28T13:08:37Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.codehaus.mojo-exec-maven-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#103 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">40805580479</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">103</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-07T00:46:58Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">31</_id>
+    <_time t="T">2024-10-28T13:08:37Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.codehaus.mojo-exec-maven-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi#103 has been opened by @renovate[bot].</details>
+    <event_id t="I">40804647290</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">103</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-06T23:42:58Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">32</_id>
+    <_time t="T">2024-10-28T13:08:37Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#102 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">40804640958</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">102</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-06T23:42:30Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">33</_id>
+    <_time t="T">2024-10-28T13:08:38Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi#102 has been opened by @renovate[bot].</details>
+    <event_id t="I">40804307253</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">102</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-06T23:18:51Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">34</_id>
+    <_time t="T">2024-10-28T13:08:38Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi#101 has been closed by @rultor, with 6 HoC and 2 comments.</details>
+    <event_id t="I">40794964649</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">6</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">101</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-06T16:40:12Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">35</_id>
+    <_time t="T">2024-10-28T13:08:38Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi#101 has been opened by @renovate[bot].</details>
+    <event_id t="I">40792947297</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">101</issue>
+    <repository t="I">552394123</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-06T15:34:24Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">37</_id>
+    <_time t="T">2024-10-28T13:08:39Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-26.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#78 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42817317423</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">78</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-14T09:41:30Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">38</_id>
+    <_time t="T">2024-10-28T13:08:40Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-26.x</branch>
+    <details t="S">The pull request objectionary/aoi2#78 has been opened by @renovate[bot].</details>
+    <event_id t="I">42816440729</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">78</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-14T09:17:21Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">39</_id>
+    <_time t="T">2024-10-28T13:08:40Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#77 has been closed by @rultor, with 8 HoC and 2 comments.</details>
+    <event_id t="I">42722554236</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">8</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">77</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-10T10:39:35Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">40</_id>
+    <_time t="T">2024-10-28T13:08:40Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi2#77 has been opened by @renovate[bot].</details>
+    <event_id t="I">42721298863</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">77</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-10T10:03:16Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">41</_id>
+    <_time t="T">2024-10-28T13:08:40Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-26.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#76 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42649127436</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">76</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-08T13:41:16Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">42</_id>
+    <_time t="T">2024-10-28T13:08:40Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-26.x</branch>
+    <details t="S">The pull request objectionary/aoi2#76 has been opened by @renovate[bot].</details>
+    <event_id t="I">42646838550</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">76</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-08T12:45:39Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">43</_id>
+    <_time t="T">2024-10-28T13:08:40Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-failsafe-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#74 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42581531439</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">74</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-06T14:13:53Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">44</_id>
+    <_time t="T">2024-10-28T13:08:41Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#75 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42581285029</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">75</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-06T13:49:32Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">45</_id>
+    <_time t="T">2024-10-28T13:08:41Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi2#75 has been opened by @renovate[bot].</details>
+    <event_id t="I">42581063486</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">75</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-06T13:26:40Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">46</_id>
+    <_time t="T">2024-10-28T13:08:41Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-failsafe-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi2#74 has been opened by @renovate[bot].</details>
+    <event_id t="I">42581063025</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">74</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-06T13:26:37Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">47</_id>
+    <_time t="T">2024-10-28T13:08:41Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-25.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#73 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42251132990</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">73</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-25T09:54:58Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">48</_id>
+    <_time t="T">2024-10-28T13:08:42Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.jetbrains-annotations-25.x</branch>
+    <details t="S">The pull request objectionary/aoi2#73 has been opened by @renovate[bot].</details>
+    <event_id t="I">42249948813</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">73</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-25T09:22:52Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">49</_id>
+    <_time t="T">2024-10-28T13:08:42Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/commons-io-commons-io-2.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#72 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42059588137</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">72</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-18T22:58:57Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">50</_id>
+    <_time t="T">2024-10-28T13:08:42Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/commons-io-commons-io-2.x</branch>
+    <details t="S">The pull request objectionary/aoi2#72 has been opened by @renovate[bot].</details>
+    <event_id t="I">42058738177</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">72</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-18T22:14:15Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">51</_id>
+    <_time t="T">2024-10-28T13:08:42Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-failsafe-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#70 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">41385636684</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">70</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-27T16:04:42Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">52</_id>
+    <_time t="T">2024-10-28T13:08:42Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#71 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">41385074761</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">71</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-27T15:47:58Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">53</_id>
+    <_time t="T">2024-10-28T13:08:43Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi2#71 has been opened by @renovate[bot].</details>
+    <event_id t="I">41383434841</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">71</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-27T15:02:44Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">54</_id>
+    <_time t="T">2024-10-28T13:08:43Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-failsafe-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi2#70 has been opened by @renovate[bot].</details>
+    <event_id t="I">41383432875</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">70</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-27T15:02:40Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">55</_id>
+    <_time t="T">2024-10-28T13:08:43Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#69 has been closed by @rultor, with 8 HoC and 2 comments.</details>
+    <event_id t="I">41245050742</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">8</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">69</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-22T10:55:04Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">56</_id>
+    <_time t="T">2024-10-28T13:08:43Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi2#69 has been opened by @renovate[bot].</details>
+    <event_id t="I">41244000822</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">69</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-22T10:21:46Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">57</_id>
+    <_time t="T">2024-10-28T13:08:43Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-failsafe-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#67 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">41120233731</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">67</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-18T22:46:48Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">58</_id>
+    <_time t="T">2024-10-28T13:08:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#68 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">41120172853</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">68</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-18T22:38:27Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">59</_id>
+    <_time t="T">2024-10-28T13:08:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-surefire-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi2#68 has been opened by @renovate[bot].</details>
+    <event_id t="I">41119989662</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">68</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-18T22:16:06Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">60</_id>
+    <_time t="T">2024-10-28T13:08:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugins-maven-failsafe-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/aoi2#67 has been opened by @renovate[bot].</details>
+    <event_id t="I">41119989285</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">67</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-18T22:16:04Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">61</_id>
+    <_time t="T">2024-10-28T13:08:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#66 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">40913667734</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">66</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-10T10:38:02Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">62</_id>
+    <_time t="T">2024-10-28T13:08:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi2#66 has been opened by @renovate[bot].</details>
+    <event_id t="I">40913588818</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">66</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-10T10:28:09Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">63</_id>
+    <_time t="T">2024-10-28T13:08:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#65 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">40865770767</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">65</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-08T15:41:36Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">64</_id>
+    <_time t="T">2024-10-28T13:08:45Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi2#65 has been opened by @renovate[bot].</details>
+    <event_id t="I">40864190133</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">65</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-08T14:55:36Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">65</_id>
+    <_time t="T">2024-10-28T13:08:45Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#64 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">40803688528</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">64</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-06T22:38:18Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">66</_id>
+    <_time t="T">2024-10-28T13:08:45Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/slf4j-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi2#64 has been opened by @renovate[bot].</details>
+    <event_id t="I">40803310096</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">64</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-06T22:17:11Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">67</_id>
+    <_time t="T">2024-10-28T13:08:45Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/aoi2#63 has been closed by @rultor, with 8 HoC and 2 comments.</details>
+    <event_id t="I">40786714358</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">8</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">63</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-08-06T12:47:49Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">68</_id>
+    <_time t="T">2024-10-28T13:08:45Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/kotlin-monorepo</branch>
+    <details t="S">The pull request objectionary/aoi2#63 has been opened by @renovate[bot].</details>
+    <event_id t="I">40785323999</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">63</issue>
+    <repository t="I">581460427</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-06T12:07:52Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">70</_id>
+    <_time t="T">2024-10-28T13:08:46Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/jamesives-github-pages-deploy-action-4.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/benchmark#53 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42374776386</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">53</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-29T20:44:52Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">71</_id>
+    <_time t="T">2024-10-28T13:08:46Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/jamesives-github-pages-deploy-action-4.x</branch>
+    <details t="S">The pull request objectionary/benchmark#53 has been opened by @renovate[bot].</details>
+    <event_id t="I">42373842940</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">53</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-29T19:04:33Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">72</_id>
+    <_time t="T">2024-10-28T13:08:46Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/jamesives-github-pages-deploy-action-4.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/benchmark#52 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42357992559</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">52</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-28T13:44:32Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">73</_id>
+    <_time t="T">2024-10-28T13:08:46Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/jamesives-github-pages-deploy-action-4.x</branch>
+    <details t="S">The pull request objectionary/benchmark#52 has been opened by @renovate[bot].</details>
+    <event_id t="I">42357556702</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">52</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-28T12:59:29Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">74</_id>
+    <_time t="T">2024-10-28T13:08:46Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/jamesives-github-pages-deploy-action-4.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/benchmark#51 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">42348065714</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">51</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-27T20:50:33Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">75</_id>
+    <_time t="T">2024-10-28T13:08:47Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/jamesives-github-pages-deploy-action-4.x</branch>
+    <details t="S">The pull request objectionary/benchmark#51 has been opened by @renovate[bot].</details>
+    <event_id t="I">42346332107</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">51</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-27T19:33:55Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">76</_id>
+    <_time t="T">2024-10-28T13:08:47Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/ubuntu-24.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/benchmark#50 has been closed by @rultor, with 4 HoC and 2 comments.</details>
+    <event_id t="I">42313371329</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">4</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">50</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-26T21:11:50Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">77</_id>
+    <_time t="T">2024-10-28T13:08:47Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/ubuntu-24.x</branch>
+    <details t="S">The pull request objectionary/benchmark#50 has been opened by @renovate[bot].</details>
+    <event_id t="I">42310599824</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">50</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-26T19:26:43Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">78</_id>
+    <_time t="T">2024-10-28T13:08:48Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/peter-evans-create-pull-request-7.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/benchmark#49 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">41576868602</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">49</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-03T11:44:52Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">79</_id>
+    <_time t="T">2024-10-28T13:08:48Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/peter-evans-create-pull-request-7.x</branch>
+    <details t="S">The pull request objectionary/benchmark#49 has been opened by @renovate[bot].</details>
+    <event_id t="I">41575065146</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">49</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-03T10:47:12Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">80</_id>
+    <_time t="T">2024-10-28T13:08:48Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/jamesives-github-pages-deploy-action-4.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/benchmark#48 has been closed by @rultor, with 2 HoC and 2 comments.</details>
+    <event_id t="I">41557565683</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">48</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-09-02T19:40:37Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">81</_id>
+    <_time t="T">2024-10-28T13:08:48Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/jamesives-github-pages-deploy-action-4.x</branch>
+    <details t="S">The pull request objectionary/benchmark#48 has been opened by @renovate[bot].</details>
+    <event_id t="I">41557022537</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">48</issue>
+    <repository t="I">733919301</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-02T19:05:31Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">85</_id>
+    <_time t="T">2024-10-28T13:08:49Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.codehaus.gmavenplus-gmavenplus-plugin-3.x</branch>
+    <comments t="I">2</comments>
+    <details t="S">The pull request objectionary/dejump#131 has been closed by @renovate[bot], with 2 HoC and 2 comments.</details>
+    <event_id t="I">42475622749</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">131</issue>
+    <repository t="I">483303722</repository>
+    <what t="S">pull-was-closed</what>
+    <when t="T">2024-10-02T14:07:29Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">86</_id>
+    <_time t="T">2024-10-28T13:08:49Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/actions-cache-4.x</branch>
+    <details t="S">The pull request objectionary/dejump#133 has been opened by @renovate[bot].</details>
+    <event_id t="I">42475621981</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">133</issue>
+    <repository t="I">483303722</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-02T14:07:28Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">88</_id>
+    <_time t="T">2024-10-28T13:08:50Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.cactoos-cactoos-0.x</branch>
+    <details t="S">The pull request objectionary/demu#40 has been opened by @renovate[bot].</details>
+    <event_id t="I">43042626213</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">40</issue>
+    <repository t="I">575859928</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-21T11:01:33Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">89</_id>
+    <_time t="T">2024-10-28T13:08:50Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/ubuntu-24.x</branch>
+    <details t="S">The pull request objectionary/demu#39 has been opened by @renovate[bot].</details>
+    <event_id t="I">42314766681</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">39</issue>
+    <repository t="I">575859928</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-09-26T22:19:27Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">90</_id>
+    <_time t="T">2024-10-28T13:08:50Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.yaml-snakeyaml-2.x</branch>
+    <details t="S">The pull request objectionary/demu#38 has been opened by @renovate[bot].</details>
+    <event_id t="I">41515463575</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">38</issue>
+    <repository t="I">575859928</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-08-31T19:25:51Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">93</_id>
+    <_time t="T">2024-10-28T13:08:52Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">version-up</branch>
+    <comments t="I">0</comments>
+    <details t="S">The pull request objectionary/eo#3436 has been closed by @yegor256, with 4 HoC and 0 comments.</details>
+    <event_id t="I">43250657159</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">4</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3436</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-28T00:53:42Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">94</_id>
+    <_time t="T">2024-10-28T13:08:52Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <commits t="I">8481</commits>
+    <contributors>
+      <v t="I">526301</v>
+      <v t="I">37025995</v>
+      <v t="I">51804353</v>
+      <v t="I">8086956</v>
+      <v t="I">32939651</v>
+      <v t="I">29139614</v>
+      <v t="I">33455325</v>
+      <v t="I">70313618</v>
+      <v t="I">49783909</v>
+      <v t="I">40247101</v>
+      <v t="I">95661085</v>
+      <v t="I">46355873</v>
+      <v t="I">51863344</v>
+      <v t="I">46539785</v>
+      <v t="I">68021590</v>
+      <v t="I">70340829</v>
+      <v t="I">57731693</v>
+      <v t="I">1524988</v>
+      <v t="I">51861302</v>
+      <v t="I">45645330</v>
+      <v t="I">7813046</v>
+      <v t="I">33983579</v>
+      <v t="I">5480441</v>
+      <v t="I">5425660</v>
+      <v t="I">38224153</v>
+      <v t="I">88106430</v>
+      <v t="I">18754996</v>
+      <v t="I">19733683</v>
+      <v t="I">104271817</v>
+      <v t="I">62389790</v>
+      <v t="I">45356788</v>
+      <v t="I">60232245</v>
+      <v t="I">40355145</v>
+      <v t="I">27022761</v>
+      <v t="I">1964562</v>
+      <v t="I">253413</v>
+      <v t="I">19238280</v>
+      <v t="I">40997599</v>
+      <v t="I">38787503</v>
+      <v t="I">49699333</v>
+      <v t="I">31208362</v>
+      <v t="I">1459306</v>
+      <v t="I">1044559</v>
+      <v t="I">48378098</v>
+      <v t="I">5655837</v>
+      <v t="I">1285898</v>
+      <v t="I">4522842</v>
+      <v t="I">6065375</v>
+      <v t="I">92184297</v>
+      <v t="I">49319353</v>
+    </contributors>
+    <details t="S">A new release 'without `malloc.resize` we can't implement mutable algorithms' has been published in objectionary/eo by @rultor.</details>
+    <event_id t="I">43250327151</event_id>
+    <event_type t="S">ReleaseEvent</event_type>
+    <hoc t="I">19774</hoc>
+    <is_human t="I">0</is_human>
+    <last_commit t="S">78f78d5251636e8e9cfbc8ed73f4ca3af27be134</last_commit>
+    <release t="I">182149635</release>
+    <repository t="I">73056727</repository>
+    <tag t="S">0.40.0</tag>
+    <what t="S">release-published</what>
+    <when t="T">2024-10-28T00:27:54Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">95</_id>
+    <_time t="T">2024-10-28T13:10:42Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">version-up</branch>
+    <details t="S">The pull request objectionary/eo#3436 has been opened by @github-actions[bot].</details>
+    <event_id t="I">43250320238</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">3436</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-28T00:27:21Z</when>
+    <where t="S">github</where>
+    <who t="I">41898282</who>
+  </f>
+  <f>
+    <_id t="I">96</_id>
+    <_time t="T">2024-10-28T13:10:42Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <details t="S">A new tag '0.40.0' has been created in objectionary/eo by @rultor.</details>
+    <event_id t="I">43250309824</event_id>
+    <event_type t="S">CreateEvent</event_type>
+    <is_human t="I">0</is_human>
+    <repository t="I">73056727</repository>
+    <tag t="S">0.40.0</tag>
+    <what t="S">tag-was-created</what>
+    <when t="T">2024-10-28T00:26:32Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">97</_id>
+    <_time t="T">2024-10-28T13:10:43Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugin-tools-maven-plugin-annotations-3.x</branch>
+    <comments t="I">3</comments>
+    <details t="S">The pull request objectionary/eo#3434 has been closed by @yegor256, with 2 HoC and 3 comments.</details>
+    <event_id t="I">43239987964</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3434</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-27T06:53:51Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">98</_id>
+    <_time t="T">2024-10-28T13:10:43Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/ch.qos.logback-logback-classic-1.x</branch>
+    <details t="S">The pull request objectionary/eo#3435 has been opened by @renovate[bot].</details>
+    <event_id t="I">43222634091</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">3435</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-25T21:31:11Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">99</_id>
+    <_time t="T">2024-10-28T13:10:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.apache.maven.plugin-tools-maven-plugin-annotations-3.x</branch>
+    <details t="S">The pull request objectionary/eo#3434 has been opened by @renovate[bot].</details>
+    <event_id t="I">43215402782</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">3434</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-25T16:38:06Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">100</_id>
+    <_time t="T">2024-10-28T13:10:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">fix/#1426/probe-and-pull-with-cache</branch>
+    <comments t="I">1</comments>
+    <details t="S">The pull request objectionary/eo#3433 has been closed by @yegor256, with 975 HoC and 1 comments.</details>
+    <event_id t="I">43215389919</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">975</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3433</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-25T16:37:38Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">101</_id>
+    <_time t="T">2024-10-28T13:10:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <comments t="I">3</comments>
+    <commits t="I">5</commits>
+    <details t="S">The pull request objectionary/eo#3433 has been reviewed by @yegor256 with 975 HoC and 3 comments.</details>
+    <event_id t="I">43215386195</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">26</files>
+    <hoc t="I">975</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3433</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2024-10-25T16:37:30Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">102</_id>
+    <_time t="T">2024-10-28T13:10:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">fix/#1426/probe-and-pull-with-cache</branch>
+    <details t="S">The pull request objectionary/eo#3433 has been opened by @maxonfjvipon.</details>
+    <event_id t="I">43209250291</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">3433</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-25T13:36:34Z</when>
+    <where t="S">github</where>
+    <who t="I">37025995</who>
+  </f>
+  <f>
+    <_id t="I">103</_id>
+    <_time t="T">2024-10-28T13:10:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <details t="S">The issue objectionary/eo#2822 has been closed by @0pdd.</details>
+    <event_id t="I">43127807019</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">2822</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2024-10-23T12:18:55Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">104</_id>
+    <_time t="T">2024-10-28T13:10:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <details t="S">The issue objectionary/eo#2821 has been closed by @0pdd.</details>
+    <event_id t="I">43127805799</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">2821</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2024-10-23T12:18:53Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">105</_id>
+    <_time t="T">2024-10-28T13:10:44Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <details t="S">The issue objectionary/eo#2820 has been closed by @0pdd.</details>
+    <event_id t="I">43127804608</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">2820</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2024-10-23T12:18:51Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">106</_id>
+    <_time t="T">2024-10-28T13:10:45Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">fix/#1426/parse-mojo-with-cache</branch>
+    <comments t="I">1</comments>
+    <details t="S">The pull request objectionary/eo#3432 has been closed by @yegor256, with 1865 HoC and 1 comments.</details>
+    <event_id t="I">43127798299</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">1865</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3432</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-23T12:18:42Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">107</_id>
+    <_time t="T">2024-10-28T13:10:45Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.cactoos-cactoos-0.x</branch>
+    <comments t="I">3</comments>
+    <details t="S">The pull request objectionary/eo#3429 has been closed by @yegor256, with 2 HoC and 3 comments.</details>
+    <event_id t="I">43089752949</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3429</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-22T13:37:28Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">108</_id>
+    <_time t="T">2024-10-28T13:10:46Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/junit5-monorepo</branch>
+    <comments t="I">3</comments>
+    <details t="S">The pull request objectionary/eo#3430 has been closed by @yegor256, with 12 HoC and 3 comments.</details>
+    <event_id t="I">43089746015</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">12</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3430</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-22T13:37:18Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">109</_id>
+    <_time t="T">2024-10-28T13:10:46Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.codehaus.mojo-exec-maven-plugin-3.x</branch>
+    <comments t="I">3</comments>
+    <details t="S">The pull request objectionary/eo#3431 has been closed by @yegor256, with 4 HoC and 3 comments.</details>
+    <event_id t="I">43089582010</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">4</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3431</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-22T13:33:23Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">110</_id>
+    <_time t="T">2024-10-28T13:10:46Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">fix/#1426/footprint-that-knows-about-cache</branch>
+    <comments t="I">17</comments>
+    <details t="S">The pull request objectionary/eo#3425 has been closed by @yegor256, with 1436 HoC and 17 comments.</details>
+    <event_id t="I">43089567505</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">1436</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3425</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-22T13:33:03Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">111</_id>
+    <_time t="T">2024-10-28T13:10:46Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.codehaus.mojo-exec-maven-plugin-3.x</branch>
+    <details t="S">The pull request objectionary/eo#3431 has been opened by @renovate[bot].</details>
+    <event_id t="I">43082336135</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">3431</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-22T10:18:40Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">112</_id>
+    <_time t="T">2024-10-28T13:10:47Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <comments t="I">19</comments>
+    <commits t="I">11</commits>
+    <details t="S">The pull request objectionary/eo#3425 has been reviewed by @yegor256 with 1436 HoC and 19 comments.</details>
+    <event_id t="I">43082218953</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">18</files>
+    <hoc t="I">1436</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3425</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2024-10-22T10:15:24Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">113</_id>
+    <_time t="T">2024-10-28T13:10:47Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/junit5-monorepo</branch>
+    <details t="S">The pull request objectionary/eo#3430 has been opened by @renovate[bot].</details>
+    <event_id t="I">43054374509</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">3430</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-21T16:00:53Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">114</_id>
+    <_time t="T">2024-10-28T13:10:47Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">renovate/org.cactoos-cactoos-0.x</branch>
+    <details t="S">The pull request objectionary/eo#3429 has been opened by @renovate[bot].</details>
+    <event_id t="I">43042197121</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">3429</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-21T10:49:01Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">115</_id>
+    <_time t="T">2024-10-28T13:10:47Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <commit t="S">9d556ad3c8099cfbd2e68826f770274c99d6a818</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">A new Git push #20803179551 has arrived to objectionary/eo, made by @yegor256 (default branch is 'master'), not associated with any pull request.</details>
+    <event_id t="I">43022029848</event_id>
+    <event_type t="S">PushEvent</event_type>
+    <is_human t="I">1</is_human>
+    <push_id t="I">20803179551</push_id>
+    <ref t="S">refs/heads/master</ref>
+    <repository t="I">73056727</repository>
+    <to_master t="I">1</to_master>
+    <what t="S">git-was-pushed</what>
+    <when t="T">2024-10-20T16:15:58Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">116</_id>
+    <_time t="T">2024-10-28T13:10:47Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">version-up</branch>
+    <comments t="I">0</comments>
+    <details t="S">The pull request objectionary/eo#3428 has been closed by @yegor256, with 4 HoC and 0 comments.</details>
+    <event_id t="I">43021672315</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <hoc t="I">4</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">3428</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2024-10-20T15:43:35Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">117</_id>
+    <_time t="T">2024-10-28T13:10:48Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <branch t="S">version-up</branch>
+    <details t="S">The pull request objectionary/eo#3428 has been opened by @github-actions[bot].</details>
+    <event_id t="I">43021626753</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">3428</issue>
+    <repository t="I">73056727</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2024-10-20T15:39:02Z</when>
+    <where t="S">github</where>
+    <who t="I">41898282</who>
+  </f>
+  <f>
+    <_id t="I">169</_id>
+    <_time t="T">2024-10-28T13:11:01Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <average_build_duration t="F">345.5</average_build_duration>
+    <average_build_success_rate t="F">0.7494456762749445</average_build_success_rate>
+    <average_issue_lifetime t="F">10736872.009803921</average_issue_lifetime>
+    <average_pull_lifetime t="F">1913445.1974522292</average_pull_lifetime>
+    <average_release_interval t="F">103542.68181818182</average_release_interval>
+    <since t="T">2024-09-30T13:11:01Z</since>
+    <what t="S">quality-of-service</what>
+    <when t="T">2024-10-28T13:11:01Z</when>
+  </f>
+  <f>
+    <_id t="I">170</_id>
+    <_time t="T">2024-10-28T14:01:51Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <since t="T">2024-09-30T14:01:51Z</since>
     <what t="S">quantity-of-deliverables</what>
-    <when t="T">2024-10-28T12:08:01Z</when>
+    <when t="T">2024-10-28T14:01:51Z</when>
+  </f>
+  <f>
+    <_id t="I">231</_id>
+    <_time t="T">2024-10-28T14:08:50Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">490221501</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">232</_id>
+    <_time t="T">2024-10-28T14:08:51Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">43251510231</latest>
+    <repository t="I">552394123</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">233</_id>
+    <_time t="T">2024-10-28T14:08:52Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">43253474680</latest>
+    <repository t="I">581460427</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">234</_id>
+    <_time t="T">2024-10-28T14:08:53Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">42374851909</latest>
+    <repository t="I">733919301</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">235</_id>
+    <_time t="T">2024-10-28T14:08:53Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">43250664645</latest>
+    <repository t="I">518891717</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">236</_id>
+    <_time t="T">2024-10-28T14:08:53Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">559427983</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">237</_id>
+    <_time t="T">2024-10-28T14:08:54Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">43250720564</latest>
+    <repository t="I">483303722</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">238</_id>
+    <_time t="T">2024-10-28T14:08:54Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">43267637997</latest>
+    <repository t="I">575859928</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">239</_id>
+    <_time t="T">2024-10-28T14:08:55Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">43251666392</latest>
+    <repository t="I">562850967</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">240</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">490221501</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">241</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">552394123</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">242</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">581460427</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">243</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">733919301</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">244</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">518891717</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">245</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">559427983</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">246</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">483303722</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">247</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">575859928</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">248</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">562850967</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">249</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">73056727</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">250</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">565789755</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">251</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">403396472</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">252</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">396732517</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">253</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">570457023</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">254</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">492899189</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">255</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">362152931</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">256</_id>
+    <_time t="T">2024-10-28T14:09:02Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">482612876</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">257</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">731438612</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">258</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">510102039</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">259</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">510082372</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">260</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">519246071</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">261</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">551486781</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">262</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">568705267</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">263</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">798766850</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">264</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">373900298</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">265</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">489321585</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">266</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">784310467</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">267</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">546194972</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">268</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">624420387</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">269</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">501942888</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">270</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">593092058</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">271</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">13623548</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">272</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">840332960</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">273</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">531151981</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">274</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">709214061</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">275</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">659628214</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">276</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">671896902</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">277</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">574459304</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">278</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">501259435</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">279</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">490157985</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">280</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">499536612</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">281</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">721146770</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">282</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">447446664</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">283</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">731516758</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">284</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">493235807</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">285</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">519299365</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">286</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">490258619</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">287</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">543969974</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">288</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">558766137</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">289</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">386420319</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">290</_id>
+    <_time t="T">2024-10-28T14:09:03Z</_time>
+    <_version t="S">0.4.0/0.25.2/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">574534248</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
   </f>
 </fb>
