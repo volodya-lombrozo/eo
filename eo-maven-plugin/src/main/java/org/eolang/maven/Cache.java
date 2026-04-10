@@ -6,11 +6,14 @@ package org.eolang.maven;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.Comparator;
+import java.util.stream.Stream;
 import org.cactoos.Func;
 import org.cactoos.func.UncheckedFunc;
 
@@ -78,8 +81,6 @@ final class Cache {
                 "Failed to perform an IO operation with cache",
                 ioexception
             );
-        } catch (final NoSuchAlgorithmException exception) {
-            throw new IllegalStateException("SHA-256 hashing algorithm isn't found", exception);
         }
     }
 
@@ -94,22 +95,79 @@ final class Cache {
     }
 
     /**
+     * Calculate SHA-256 hash of a file or directory.
+     * @param any File or directory path
+     * @return Base64-encoded SHA-256 hash of the file or directory contents
+     */
+    private static String sha(final Path any) {
+        final String result;
+        if (Files.isDirectory(any)) {
+            result = Cache.dirSha(any);
+        } else if (Files.isRegularFile(any)) {
+            result = Cache.fileSha(any);
+        } else {
+            throw new IllegalArgumentException(
+                String.format("Path '%s' is neither a regular file nor a directory", any)
+            );
+        }
+        return result;
+    }
+
+    /**
+     * Calculate SHA-256 hash of a directory by hashing all regular files inside it.
+     * @param dir Directory path.
+     * @return Base64-encoded SHA-256 hash of the directory contents.
+     */
+    private static String dirSha(final Path dir) {
+        try {
+            final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            try (Stream<Path> stream = Files.walk(dir)) {
+                stream.filter(Files::isRegularFile)
+                    .sorted(Comparator.comparing(Path::toString))
+                    .map(Cache::fileSha)
+                    .map(s -> s.getBytes(StandardCharsets.UTF_8))
+                    .forEach(digest::update);
+            }
+            return Base64.getEncoder().encodeToString(digest.digest());
+        } catch (final NoSuchAlgorithmException exception) {
+            throw new IllegalStateException(
+                "SHA-256 algorithm is not available for dir hashing",
+                exception
+            );
+        } catch (final IOException exception) {
+            throw new IllegalStateException(
+                String.format("Failed to read directory '%s' for hashing", dir),
+                exception
+            );
+        }
+    }
+
+    /**
      * Calculate SHA-256 hash of a file and return it as Base64 string.
      * @param file File path
      * @return Base64-encoded SHA-256 hash
-     * @throws NoSuchAlgorithmException If SHA-256 algorithm is not available
-     * @throws IOException If an I/O error occurs reading the file
+     * @throws IllegalStateException If SHA-256 algorithm is not available
+     * @throws IllegalStateException If an I/O error occurs reading the file
      */
-    private static String sha(final Path file) throws NoSuchAlgorithmException, IOException {
-        final MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        try (InputStream stream = Files.newInputStream(file)) {
-            final byte[] buffer = new byte[8192];
-            int read = stream.read(buffer);
-            while (read != -1) {
-                digest.update(buffer, 0, read);
-                read = stream.read(buffer);
+    private static String fileSha(final Path file) {
+        try {
+            final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            try (InputStream stream = Files.newInputStream(file)) {
+                final byte[] buffer = new byte[8192];
+                int read = stream.read(buffer);
+                while (read != -1) {
+                    digest.update(buffer, 0, read);
+                    read = stream.read(buffer);
+                }
             }
+            return Base64.getEncoder().encodeToString(digest.digest());
+        } catch (final NoSuchAlgorithmException exception) {
+            throw new IllegalStateException("SHA-256 algorithm is not available", exception);
+        } catch (final IOException exception) {
+            throw new IllegalStateException(
+                String.format("Failed to read file '%s' for hashing", file),
+                exception
+            );
         }
-        return Base64.getEncoder().encodeToString(digest.digest());
     }
 }
