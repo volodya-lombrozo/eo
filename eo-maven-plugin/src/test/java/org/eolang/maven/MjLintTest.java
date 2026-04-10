@@ -26,6 +26,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
  * Test cases for {@link MjLint}.
  *
  * @since 0.31.0
+ * @todo #4940:90min Enable MjLintTests when WPA cache is ready.
+ *  We need to enable the following test when we implement WPA cache.
+ *  {@link MjLintTest#savesForWholeProgramAnalysisResultsToCache}
+ *  For now, WPA results are not saved to cache.
  */
 @SuppressWarnings({"PMD.AvoidDuplicateLiterals", "PMD.TooManyMethods"})
 @ExtendWith(MktmpResolver.class)
@@ -69,6 +73,87 @@ final class MjLintTest {
                 maven.programTojo().linted()
             ).path("/object/errors/error[@severity='error']").count(),
             Matchers.greaterThan(0L)
+        );
+    }
+
+    @Test
+    @SuppressWarnings({
+        "PMD.UnitTestContainsTooManyAsserts",
+        "PMD.UnnecessaryLocalRule"
+    })
+    void detectsWholeProgramAnalysisErrorsSuccessfully(@Mktmp final Path temp) throws IOException {
+        final FakeMaven maven = new FakeMaven(temp)
+            .with("lintAsPackage", true)
+            .withProgram(MjLintTest.probmlematic());
+        Assertions.assertThrows(
+            IllegalStateException.class,
+            () -> maven.execute(new FakeMaven.Lint()),
+            "We should get WPA error here: 'Alias \"nowhere Φ.a.b.nowhere\" points to \"a.b.nowhere\", but it's not in scope (1): [\"foo.x.main\"]'"
+        );
+        MatcherAssert.assertThat(
+            "We don't add critical errors to XMIR and throw exception instead",
+            new Xnav(
+                maven.programTojo().linted()
+            ).path("/object/errors/error[@severity='critical']").count(),
+            Matchers.equalTo(0L)
+        );
+    }
+
+    @Test
+    @SuppressWarnings("PMD.UnitTestContainsTooManyAsserts")
+    void detectsWholeProgramAnalysisErrorsOnSecondRun(@Mktmp final Path temp) throws IOException {
+        final FakeMaven maven = new FakeMaven(temp)
+            .with("lintAsPackage", true)
+            .withProgram(MjLintTest.probmlematic());
+        Assertions.assertThrows(
+            IllegalStateException.class,
+            () -> maven.execute(new FakeMaven.Lint()),
+            "We should get WPA error here for the first time"
+        );
+        Assertions.assertThrows(
+            IllegalStateException.class,
+            () -> maven.execute(new FakeMaven.Lint()),
+            "We should get WPA error here for the second time as well"
+        );
+    }
+
+    @Test
+    @Disabled
+    @SuppressWarnings({
+        "PMD.UnitTestContainsTooManyAsserts",
+        "PMD.UnnecessaryLocalRule"
+    })
+    void savesForWholeProgramAnalysisResultsToCache(@Mktmp final Path temp) throws IOException {
+        final Path cache = temp.resolve("wpa-cache");
+        final String hash = "abcdefq";
+        final FakeMaven maven = new FakeMaven(temp)
+            .with("lintAsPackage", true)
+            .allTojosWithHash(() -> hash)
+            .with("cache", cache.toFile())
+            .withProgram(MjLintTest.probmlematic());
+        Assertions.assertThrows(
+            IllegalStateException.class,
+            () -> maven.execute(new FakeMaven.Lint()),
+            "We should get WPA error, but we got it"
+        );
+        MatcherAssert.assertThat(
+            "WPA results must be saved to cache",
+            cache.resolve(MjLint.CACHE)
+                .resolve(FakeMaven.pluginVersion())
+                .resolve(hash)
+                .resolve("foo/x/wpa.xmir").toFile(),
+            FileMatchers.anExistingFile()
+        );
+    }
+
+    @Test
+    void ignoresWholeProgramAnalysisErrors(@Mktmp final Path temp) {
+        Assertions.assertDoesNotThrow(
+            () -> new FakeMaven(temp)
+                .with("lintAsPackage", false)
+                .withProgram(MjLintTest.probmlematic())
+                .execute(new FakeMaven.Lint()),
+            "We shouldn't get WPA error here because we disabled it with 'lintAsPackage' flag, but we got it"
         );
     }
 
@@ -301,5 +386,20 @@ final class MjLintTest {
             () -> new FakeMaven(temp).withProgram("# App.").execute(new FakeMaven.Lint()),
             "MjLint's execution was not failed, but it should"
         );
+    }
+
+    /**
+     * Program with WPA error.
+     * @return Program with WPA error
+     */
+    private static String[] probmlematic() {
+        return new String[]{
+            "+package foo.x",
+            "+alias a.b.nowhere",
+            "+unlint unused-alias",
+            "",
+            "# No comments.",
+            "[] > main",
+        };
     }
 }
