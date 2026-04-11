@@ -207,7 +207,7 @@ final class CacheTest {
     }
 
     @Test
-    void generateCorrectHashForEntireFolderWithSeveralFiles(
+    void generatesCorrectHashForEntireFolderWithSeveralFiles(
         @Mktmp final Path temp
     ) throws IOException, NoSuchAlgorithmException {
         final Path cache = temp.resolve("cache");
