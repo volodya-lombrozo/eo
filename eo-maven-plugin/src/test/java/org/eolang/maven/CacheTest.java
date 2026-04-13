@@ -222,7 +222,7 @@ final class CacheTest {
         new Cache(cache, p -> result).apply(
             source,
             temp.resolve("out.txt"),
-            source.resolve("folder-cache")
+            source.getFileName()
         );
         final MessageDigest instance = MessageDigest.getInstance("SHA-256");
         instance.update(CacheTest.hash(first).getBytes(StandardCharsets.UTF_8));
@@ -230,7 +230,7 @@ final class CacheTest {
         MatcherAssert.assertThat(
             "SHA-256 hash file has incorrect content for folder with several files",
             Files.readString(
-                cache.resolve("folder-cache.sha256"),
+                cache.resolve("folder.sha256"),
                 StandardCharsets.UTF_8
             ),
             Matchers.equalTo(Base64.getEncoder().encodeToString(instance.digest()))
