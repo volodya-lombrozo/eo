@@ -202,12 +202,45 @@ final class CacheTest {
                 cache.resolve(String.format("%s.sha256", tail)),
                 StandardCharsets.UTF_8
             ),
-            Matchers.equalTo(
-                Base64.getEncoder().encodeToString(
-                    MessageDigest.getInstance("SHA-256")
-                        .digest(content.getBytes(StandardCharsets.UTF_8))
-                )
-            )
+            Matchers.equalTo(CacheTest.hash(content))
+        );
+    }
+
+    @Test
+    void generatesCorrectHashForEntireFolderWithSeveralFiles(
+        @Mktmp final Path temp
+    ) throws IOException, NoSuchAlgorithmException {
+        final Path cache = temp.resolve("cache");
+        Files.createDirectories(cache);
+        final Path source = temp.resolve("folder");
+        Files.createDirectories(source);
+        final String first = "file1 content";
+        final String second = "file2 content";
+        final String result = String.format("%s%s", first, second);
+        Files.writeString(source.resolve("file1.txt"), first, StandardCharsets.UTF_8);
+        Files.writeString(source.resolve("file2.txt"), second, StandardCharsets.UTF_8);
+        new Cache(cache, p -> result).apply(
+            source,
+            temp.resolve("out.txt"),
+            source.getFileName()
+        );
+        final MessageDigest instance = MessageDigest.getInstance("SHA-256");
+        instance.update(CacheTest.hash(first).getBytes(StandardCharsets.UTF_8));
+        instance.update(CacheTest.hash(second).getBytes(StandardCharsets.UTF_8));
+        MatcherAssert.assertThat(
+            "SHA-256 hash file has incorrect content for folder with several files",
+            Files.readString(
+                cache.resolve("folder.sha256"),
+                StandardCharsets.UTF_8
+            ),
+            Matchers.equalTo(Base64.getEncoder().encodeToString(instance.digest()))
+        );
+    }
+
+    private static String hash(final String content) throws NoSuchAlgorithmException {
+        return Base64.getEncoder().encodeToString(
+            MessageDigest.getInstance("SHA-256")
+                .digest(content.getBytes(StandardCharsets.UTF_8))
         );
     }
 }
