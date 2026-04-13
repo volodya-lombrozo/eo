@@ -134,7 +134,7 @@ final class MjLintTest {
         Assertions.assertThrows(
             IllegalStateException.class,
             () -> maven.execute(new FakeMaven.Lint()),
-            "We should get WPA error, but we got it"
+            "We should get WPA error"
         );
         MatcherAssert.assertThat(
             "WPA results must be saved to cache",

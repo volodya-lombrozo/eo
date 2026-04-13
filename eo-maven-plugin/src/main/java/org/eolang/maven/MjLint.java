@@ -30,6 +30,7 @@ import org.eolang.parser.OnDefault;
 import org.eolang.parser.OnDetailed;
 import org.w3c.dom.Node;
 import org.xembly.Directives;
+import org.xembly.ImpossibleModificationException;
 import org.xembly.Xembler;
 
 /**
@@ -207,6 +208,8 @@ public final class MjLint extends MjSafe {
         if (!this.skipProgramLints.isEmpty()) {
             Logger.info(this, "Unliting WPA lints: %[list]s", this.skipProgramLints);
         }
+
+        List<Defect> defects = new ArrayList<>(0);
         new Program(pkg)
             .without(this.skipProgramLints.toArray(new String[0]))
             .defects()
@@ -221,12 +224,24 @@ public final class MjLint extends MjSafe {
                             defect
                         )
                     ).applyQuietly(node);
+                    defects.add(defect);
                     if (MjLint.notSuppressed(new Xnav(node), defect)) {
                         counts.compute(defect.severity(), (sev, before) -> before + 1);
                         MjLint.logOne(defect);
                     }
                 }
             );
+        if (this.cacheEnabled) {
+            final Directives all = new Directives().add("defects");
+            for (final Defect defect : defects) {
+                MjLint.embedded(all, defect);
+            }
+            all.up();
+            final String xml = new Xembler(all).xmlQuietly();
+            // where do we need to save all the defects?
+
+        }
+
         return pkg.size();
     }
 
