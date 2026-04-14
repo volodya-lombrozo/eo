@@ -13,6 +13,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Comparator;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 import org.cactoos.Func;
 import org.cactoos.func.UncheckedFunc;
@@ -35,6 +36,11 @@ final class Cache {
     private final Func<Path, String> compilation;
 
     /**
+     * Files filter for dir cache.
+     */
+    private final Predicate<Path> filter;
+
+    /**
      * Constructor.
      * @param path Cache path
      * @param compilation Compilation function
@@ -49,8 +55,23 @@ final class Cache {
      * @param compilation Compilation function
      */
     Cache(final Path base, final Func<Path, String> compilation) {
+        this(base, compilation, p -> true);
+    }
+
+    /**
+     * Constructor.
+     * @param base Base cache directory.
+     * @param compilation Compilation function.
+     * @param filter Filter for files.
+     */
+    public Cache(
+        final Path base,
+        final Func<Path, String> compilation,
+        final Predicate<Path> filter
+    ) {
         this.base = base;
         this.compilation = compilation;
+        this.filter = filter;
     }
 
     /**
@@ -61,7 +82,7 @@ final class Cache {
      */
     public void apply(final Path source, final Path target, final Path tail) {
         try {
-            final String sha = Cache.sha(source);
+            final String sha = this.sha(source);
             final Path hash = this.hash(tail);
             final Path cache = this.base.resolve(tail);
             if (
@@ -99,10 +120,10 @@ final class Cache {
      * @param any File or directory path
      * @return Base64-encoded SHA-256 hash of the file or directory contents
      */
-    private static String sha(final Path any) {
+    private String sha(final Path any) {
         final String result;
         if (Files.isDirectory(any)) {
-            result = Cache.dirSha(any);
+            result = this.dirSha(any);
         } else if (Files.isRegularFile(any)) {
             result = Cache.fileSha(any);
         } else {
@@ -118,11 +139,12 @@ final class Cache {
      * @param dir Directory path.
      * @return Base64-encoded SHA-256 hash of the directory contents.
      */
-    private static String dirSha(final Path dir) {
+    private String dirSha(final Path dir) {
         try {
             final MessageDigest digest = MessageDigest.getInstance("SHA-256");
             try (Stream<Path> stream = Files.walk(dir)) {
                 stream.filter(Files::isRegularFile)
+                    .filter(p-> this.filter.test(p))
                     .sorted(Comparator.comparing(Path::toString))
                     .map(Cache::fileSha)
                     .map(s -> s.getBytes(StandardCharsets.UTF_8))
