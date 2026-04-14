@@ -214,6 +214,7 @@ public final class MjLint extends MjSafe {
             new Cache(
                 this.cache.toPath().resolve(MjLint.CACHE),
                 root -> {
+                    Logger.info(this, "Linting a package");
                     final Directives all = new Directives().add("defects");
                     for (final Defect defect : this.wpa(pkg)) {
                         MjLint.embedded(all, defect);
@@ -226,6 +227,10 @@ public final class MjLint extends MjSafe {
             ).apply(this.sourcesDir.toPath(), target, wpa);
             defects = MjLint.read(target);
         } else {
+            Logger.info(
+                this,
+                "Linting a package without cache, this might be slow, consider enabling cache"
+            );
             defects = this.wpa(pkg);
         }
         for (final Defect defect : defects) {
@@ -437,27 +442,21 @@ public final class MjLint extends MjSafe {
         return dirs.up();
     }
 
+    /**
+     * Read defects from XMIR.
+     * @param path Path to XMIR
+     * @return Collection of defects
+     */
     private static List<Defect> read(final Path path) {
         return new Xnav(path).path("/defects/error").map(
-            node -> {
-                return new Defect.Default(
-                    node.attribute("check").text().orElseThrow(),
-                    Severity.parsed(node.attribute("severity").text().orElseThrow()),
-                    "",
-                    0,
-                    ""
-                )
-                    ;
-            }
+            node -> new Defect.Default(
+                node.attribute("check").text().orElseThrow(),
+                Severity.parsed(node.attribute("severity").text().orElseThrow()),
+                "",
+                0,
+                ""
+            )
         ).collect(Collectors.toList());
-//        dirs.add("error")
-//            .attr("check", defect.rule())
-//            .attr("severity", defect.severity().mnemo())
-//            .set(defect.text());
-//        if (defect.line() > 0) {
-//            dirs.attr("line", defect.line());
-//        }
-//        return dirs.up();
     }
 
     /**

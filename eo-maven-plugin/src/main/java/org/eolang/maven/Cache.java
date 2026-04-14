@@ -64,7 +64,7 @@ final class Cache {
      * @param compilation Compilation function.
      * @param filter Filter for files.
      */
-    public Cache(
+    Cache(
         final Path base,
         final Func<Path, String> compilation,
         final Predicate<Path> filter
@@ -144,7 +144,7 @@ final class Cache {
             final MessageDigest digest = MessageDigest.getInstance("SHA-256");
             try (Stream<Path> stream = Files.walk(dir)) {
                 stream.filter(Files::isRegularFile)
-                    .filter(p-> this.filter.test(p))
+                    .filter(this.filter::test)
                     .sorted(Comparator.comparing(Path::toString))
                     .map(Cache::fileSha)
                     .map(s -> s.getBytes(StandardCharsets.UTF_8))

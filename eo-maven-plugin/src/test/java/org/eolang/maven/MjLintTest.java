@@ -26,10 +26,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
  * Test cases for {@link MjLint}.
  *
  * @since 0.31.0
- * @todo #4940:90min Enable MjLintTests when WPA cache is ready.
- *  We need to enable the following test when we implement WPA cache.
- *  {@link MjLintTest#savesForWholeProgramAnalysisResultsToCache}
- *  For now, WPA results are not saved to cache.
  */
 @SuppressWarnings({"PMD.AvoidDuplicateLiterals", "PMD.TooManyMethods"})
 @ExtendWith(MktmpResolver.class)
@@ -118,47 +114,9 @@ final class MjLintTest {
     }
 
     @Test
-    @SuppressWarnings({
-        "PMD.UnitTestContainsTooManyAsserts",
-        "PMD.UnnecessaryLocalRule"
-    })
     void savesForWholeProgramAnalysisResultsToCache(@Mktmp final Path temp) throws IOException {
         final Path cache = temp.resolve("wpa-cache");
         final FakeMaven maven = new FakeMaven(temp)
-            .with("lintAsPackage", true)
-            .allTojosWithHash(() -> "abcdefq")
-            .with("cache", cache.toFile())
-           .withProgram(
-            "+home https://www.eolang.org",
-            "+package foo.x",
-            "+version 0.0.0",
-            "+unlint empty-object",
-            "+unlint unit-test-missing",
-            "+unlint mandatory-spdx",
-            "+unlint comment-too-short",
-            "+unlint object-has-data",
-            "",
-            "# No comments.",
-            "[x] > main",
-            "  (stdout \"Hello!\" x).print > @"
-        );
-        maven.execute(new FakeMaven.Lint());
-        MatcherAssert.assertThat(
-            "WPA results must be saved to cache",
-            cache.resolve(MjLint.CACHE)
-                .resolve("wpa.xmir").toFile(),
-            FileMatchers.anExistingFile()
-        );
-    }
-
-    @Test
-    @SuppressWarnings({
-        "PMD.UnitTestContainsTooManyAsserts",
-        "PMD.UnnecessaryLocalRule"
-    })
-    void getsWholeProgramAnalysisResultsFromCache(@Mktmp final Path temp) throws IOException {
-        final Path cache = temp.resolve("wpa-cache");
-        final FakeMaven maven = new FakeMaven(temp.resolve("src"))
             .with("lintAsPackage", true)
             .allTojosWithHash(() -> "abcdefq")
             .with("cache", cache.toFile())
@@ -176,7 +134,6 @@ final class MjLintTest {
                 "[x] > main",
                 "  (stdout \"Hello!\" x).print > @"
             );
-        maven.execute(new FakeMaven.Lint());
         maven.execute(new FakeMaven.Lint());
         MatcherAssert.assertThat(
             "WPA results must be saved to cache",
