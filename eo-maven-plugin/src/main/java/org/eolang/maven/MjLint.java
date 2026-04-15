@@ -207,6 +207,40 @@ public final class MjLint extends MjSafe {
         if (!this.skipProgramLints.isEmpty()) {
             Logger.info(this, "Unliting WPA lints: %[list]s", this.skipProgramLints);
         }
+        final List<Defect> defects;
+        if (this.cacheEnabled) {
+            final Path wpa = Path.of("wpa.xmir");
+            final Path target = this.targetDir.toPath().resolve(MjLint.DIR).resolve(wpa);
+            new Cache(
+                this.cache.toPath().resolve(MjLint.CACHE),
+                root -> {
+                    Logger.info(this, "Linting a package");
+                    final Directives all = new Directives().add("defects");
+                    for (final Defect defect : this.wpa(pkg)) {
+                        MjLint.embedded(all, defect);
+                    }
+                    all.up();
+                    return new Xembler(all).xmlQuietly();
+                },
+                p -> p.getFileName().toString().endsWith(".xmir")
+                    && !p.getFileName().equals(wpa)
+            ).apply(this.sourcesDir.toPath(), target, wpa);
+            defects = MjLint.read(target);
+        } else {
+            Logger.info(
+                this,
+                "Linting a package without cache, this might be slow, consider enabling cache"
+            );
+            defects = this.wpa(pkg);
+        }
+        for (final Defect defect : defects) {
+            counts.compute(defect.severity(), (sev, before) -> before + 1);
+        }
+        return pkg.size();
+    }
+
+    private List<Defect> wpa(final Map<String, XML> pkg) {
+        final List<Defect> defects = new ArrayList<>(0);
         new Program(pkg)
             .without(this.skipProgramLints.toArray(new String[0]))
             .defects()
@@ -222,12 +256,12 @@ public final class MjLint extends MjSafe {
                         )
                     ).applyQuietly(node);
                     if (MjLint.notSuppressed(new Xnav(node), defect)) {
-                        counts.compute(defect.severity(), (sev, before) -> before + 1);
+                        defects.add(defect);
                         MjLint.logOne(defect);
                     }
                 }
             );
-        return pkg.size();
+        return defects;
     }
 
     /**
@@ -406,6 +440,23 @@ public final class MjLint extends MjSafe {
             dirs.attr("line", defect.line());
         }
         return dirs.up();
+    }
+
+    /**
+     * Read defects from XMIR.
+     * @param path Path to XMIR
+     * @return Collection of defects
+     */
+    private static List<Defect> read(final Path path) {
+        return new Xnav(path).path("/defects/error").map(
+            node -> new Defect.Default(
+                node.attribute("check").text().orElseThrow(),
+                Severity.parsed(node.attribute("severity").text().orElseThrow()),
+                "",
+                0,
+                ""
+            )
+        ).collect(Collectors.toList());
     }
 
     /**
