@@ -79,7 +79,7 @@ final class ObjectsIndexTest {
     void downloadsAndChecksFromRealSource() throws Exception {
         MatcherAssert.assertThat(
             "The index must contain the default value",
-            new ObjectsIndex().contains("org.eolang.io.stdout"),
+            new ObjectsIndex().contains("io.stdout"),
             Matchers.is(true)
         );
     }

@@ -26,6 +26,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 /**
  * Integration test that runs simple EO program from packaged jar.
  * @since 0.54
+ * @todo #4987:30min Enable JarIt integration tests. The tests were disabled because of this ticket:
+ *  https://github.com/objectionary/eo/issues/4987?issue=objectionary%7Ceo%7C4538. When new release
+ *  is made, we should try to enable them. Don't forget to remove the puzzle.
  */
 @SuppressWarnings({"JTCOP.RuleAllTestsHaveProductionClass", "PMD.UnitTestShouldIncludeAssert"})
 @ExtendWith(MktmpResolver.class)
@@ -166,6 +169,7 @@ final class JarIT {
         );
     }
 
+    @Disabled
     @Test
     @ExtendWith(WeAreOnline.class)
     @ExtendWith(MayBeSlow.class)
