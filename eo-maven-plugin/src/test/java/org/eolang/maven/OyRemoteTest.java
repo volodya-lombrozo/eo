@@ -78,7 +78,7 @@ final class OyRemoteTest {
     void checksPresenceOfProgram() throws IOException {
         MatcherAssert.assertThat(
             "OyRemote positively checks the presence of the program in Objectionary",
-            new OyRemote(new ChRemote("master")).contains("org.eolang.io.stdout"),
+            new OyRemote(new ChRemote("master")).contains("io.stdout"),
             Matchers.is(true)
         );
     }
@@ -88,7 +88,7 @@ final class OyRemoteTest {
     void checksPresenceOfDirectory() throws IOException {
         MatcherAssert.assertThat(
             "OyRemote positively checks the presence of the directory in Objectionary",
-            new OyRemote(new ChRemote("master")).contains("org.eolang.ms"),
+            new OyRemote(new ChRemote("master")).contains("ms"),
             Matchers.is(true)
         );
     }
@@ -96,7 +96,7 @@ final class OyRemoteTest {
     @Test
     @ExtendWith(WeAreOnline.class)
     void checksPresenceOfProgramWithNarrowHash() throws IOException {
-        final String stdout = "org.eolang.io.stdout";
+        final String stdout = "io.stdout";
         MatcherAssert.assertThat(
             String.format(
                 "OyRemote with narrow hash should have contained program %s, but it didn't",
@@ -114,7 +114,7 @@ final class OyRemoteTest {
     @Test
     @ExtendWith(WeAreOnline.class)
     void checksPresenceOfDirectoryWithNarrowHash() throws IOException {
-        final String stdout = "org.eolang.ss";
+        final String stdout = "ss";
         MatcherAssert.assertThat(
             String.format(
                 "OyRemote with narrow hash should have contained directory %s, but it didn't",

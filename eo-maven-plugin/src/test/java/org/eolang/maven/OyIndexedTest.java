@@ -93,6 +93,6 @@ final class OyIndexedTest {
      * Returns the stdout path.
      */
     private String stdout() {
-        return "org.eolang.io.stdout";
+        return "io.stdout";
     }
 }

@@ -67,15 +67,15 @@ final class MjUnspileTest {
     @SuppressWarnings("PMD.UnnecessaryLocalRule")
     void deletesInnerGeneratedClasses(@Mktmp final Path temp) throws IOException {
         final FakeMaven maven = new FakeMaven(temp);
-        new Saved("outer", maven.generatedPath().resolve("EOorg/EOnumber.java")).value();
+        new Saved("outer", maven.generatedPath().resolve("org/EOnumber.java")).value();
         final Path clazz = new Saved(
-            "clz", maven.classesPath().resolve("EOorg/EOnumber.class")
+            "clz", maven.classesPath().resolve("org/EOnumber.class")
         ).value();
         final Path inner = new Saved(
-            "inner", maven.classesPath().resolve("EOorg/EOnumber$1$2$3.class")
+            "inner", maven.classesPath().resolve("org/EOnumber$1$2$3.class")
         ).value();
         final Path located = new Saved(
-            "clss", maven.classesPath().resolve("EOorg/EOnumber$EOΦorgeolanginner.class")
+            "clss", maven.classesPath().resolve("org/EOnumber$EOΦorgeolanginner.class")
         ).value();
         MatcherAssert.assertThat(
             "UnspileMojo must delete inner auto generated classes",
