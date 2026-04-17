@@ -504,7 +504,8 @@ abstract class MjSafe extends AbstractMojo {
         } else {
             try {
                 if (this.central == null) {
-                    this.central = new Central(this.project, this.session, this.manager);
+//                    this.central = new Central(this.project, this.session, this.manager);
+                    this.central = new CentralDirect();
                 }
                 final long start = System.nanoTime();
                 this.execWithTimeout();
