@@ -111,27 +111,25 @@ final class HeapsTest {
     }
 
     @Test
-    @SuppressWarnings("PMD.UnnecessaryLocalRule")
-    void failsOnWriteMoreThanAllocated() {
+    void resizesOnWriteMoreThanAllocated() {
         final int idx = Heaps.INSTANCE.malloc(new HeapsTest.PhFake(), 2);
-        final byte[] bytes = {1, 2, 3, 4, 5};
-        Assertions.assertThrows(
-            ExFailure.class,
-            () -> Heaps.INSTANCE.write(idx, 0, bytes),
-            "Heaps should throw an exception on writing more bytes than allocated size, but it didn't"
+        Heaps.INSTANCE.write(idx, 0, new byte[] {1, 2, 3, 4, 5});
+        MatcherAssert.assertThat(
+            "Heaps should resize block when writing more bytes than allocated, but it didn't",
+            Heaps.INSTANCE.read(idx, 0, 5),
+            Matchers.equalTo(new byte[] {1, 2, 3, 4, 5})
         );
         Heaps.INSTANCE.free(idx);
     }
 
     @Test
-    @SuppressWarnings("PMD.UnnecessaryLocalRule")
-    void failsToWriteMoreThanAllocatedWithOffset() {
+    void resizesOnWriteMoreThanAllocatedWithOffset() {
         final int idx = Heaps.INSTANCE.malloc(new HeapsTest.PhFake(), 3);
-        final byte[] bytes = {1, 2, 3};
-        Assertions.assertThrows(
-            ExFailure.class,
-            () -> Heaps.INSTANCE.write(idx, 1, bytes),
-            "Heaps should throw an exception on writing past allocated block using offset, but it didn't"
+        Heaps.INSTANCE.write(idx, 1, new byte[] {1, 2, 3});
+        MatcherAssert.assertThat(
+            "Heaps should resize block when writing past allocated boundary using offset, but it didn't",
+            Heaps.INSTANCE.read(idx, 1, 3),
+            Matchers.equalTo(new byte[] {1, 2, 3})
         );
         Heaps.INSTANCE.free(idx);
     }
@@ -142,7 +140,7 @@ final class HeapsTest {
         Heaps.INSTANCE.write(idx, 0, new byte[] {1, 1, 3, 4, 5});
         Heaps.INSTANCE.write(idx, 2, new byte[] {2, 2});
         MatcherAssert.assertThat(
-            "Heaps should return correct bytes after partial overwrite, but it didn't",
+            "Heaps should return correct bytes after partial overwrite preserving trailing bytes, but it didn't",
             Heaps.INSTANCE.read(idx, 0, 5),
             Matchers.equalTo(new byte[] {1, 1, 2, 2, 5})
         );

@@ -177,33 +177,14 @@ final class Heaps {
                     )
                 );
             }
-            final byte[] current = this.blocks.get(identifier);
-            final int length = current.length;
-            if (length < offset + data.length) {
-                throw new ExFailure(
-                    String.format(
-                        "Can't write '%d' bytes with offset '%d' to the block with identifier '%d', because only '%d' were allocated",
-                        data.length,
-                        offset,
-                        identifier,
-                        length
-                    )
-                );
+            if (this.blocks.get(identifier).length < offset + data.length) {
+                this.resize(identifier, offset + data.length);
             }
+            final byte[] source = this.blocks.get(identifier);
+            final int length = source.length;
             final byte[] result = new byte[length];
-            if (offset > 0) {
-                System.arraycopy(current, 0, result, 0, offset);
-            }
+            System.arraycopy(source, 0, result, 0, length);
             System.arraycopy(data, 0, result, offset, data.length);
-            if (length > offset + data.length) {
-                System.arraycopy(
-                    current,
-                    offset + data.length,
-                    result,
-                    offset + data.length,
-                    length - offset - data.length
-                );
-            }
             this.blocks.put(identifier, result);
         } finally {
             this.lock.unlock();
