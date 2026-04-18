@@ -165,9 +165,8 @@
     <xsl:value-of select="xs:int($decimal)"/>
   </xsl:function>
   <!-- Escape `+` in test name syntax. -->
-  <xsl:function name="eo:escape-plus">
-    <xsl:param name="name"/>
-    <xsl:variable name="pos" select="string-length(tokenize($name, '\+')[1]) + 1"/>
-    <xsl:value-of select="concat(substring($name, 1, $pos - 1), substring($name, $pos + 1))"/>
+  <xsl:function name="eo:escape-plus" as="xs:string">
+    <xsl:param name="name" as="xs:string"/>
+    <xsl:sequence select="if (contains($name, '+')) then concat(substring-before($name, '+'), substring-after($name, '+')) else $name"/>
   </xsl:function>
 </xsl:stylesheet>

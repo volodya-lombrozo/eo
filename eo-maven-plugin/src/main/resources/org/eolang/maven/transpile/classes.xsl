@@ -20,7 +20,7 @@
       <xsl:value-of select="."/>
       <xsl:text>"</xsl:text>
     </xsl:for-each>
-    <xsl:variable name="content" select="replace(text()[1], '^\s*(.+?)\s*$', '$1')"/>
+    <xsl:variable name="content" select="normalize-space(string(text()[1]))"/>
     <xsl:if test="$content = '' and not($node/element())">
       <xsl:text>/</xsl:text>
     </xsl:if>
