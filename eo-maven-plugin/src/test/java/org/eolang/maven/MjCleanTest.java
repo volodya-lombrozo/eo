@@ -55,7 +55,6 @@ final class MjCleanTest {
             .with("cache", temp.resolve("cache/parsed").toFile())
             .with("skipZeroVersions", true)
             .with("central", Central.EMPTY)
-            .with("ignoreTransitive", true)
             .execute(MjRegister.class)
             .execute(MjAssemble.class)
             .execute(MjClean.class);

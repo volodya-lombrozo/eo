@@ -181,7 +181,6 @@ final class FakeMaven {
             this.params.putIfAbsent("cacheEnabled", true);
             this.params.putIfAbsent("discoverSelf", false);
             this.params.putIfAbsent("ignoreVersionConflicts", false);
-            this.params.putIfAbsent("ignoreTransitive", true);
             this.params.putIfAbsent("central", new DummyCentral());
             this.params.putIfAbsent("resolveInCentral", false);
             this.params.putIfAbsent(

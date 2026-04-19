@@ -17,7 +17,6 @@ import java.util.stream.Stream;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
-import org.cactoos.Func;
 import org.cactoos.iterable.Mapped;
 import org.cactoos.set.SetOf;
 import org.cactoos.text.Joined;
@@ -53,21 +52,6 @@ public final class MjResolve extends MjSafe {
      * The directory where to resolve to.
      */
     static final String DIR = "4-resolve";
-
-    /**
-     * Transitive dependency extractor. It's a strategy pattern for extracting transitive
-     * dependencies for a particular artifact.
-     *
-     * @checkstyle MemberNameCheck (7 lines)
-     */
-    @SuppressWarnings({"PMD.ImmutableField", "PMD.LongVariable"})
-    private Func<Dep, Dependencies> transitiveStrategy = dependency -> new DpsDepgraph(
-        this.project,
-        this.session,
-        this.manager,
-        this.targetDir.toPath().resolve(MjResolve.DIR).resolve("dependencies-info"),
-        dependency
-    );
 
     /**
      * Resolve default JNA dependency or not.
@@ -238,9 +222,6 @@ public final class MjResolve extends MjSafe {
         }
         if (!this.ignoreVersionConflicts) {
             deps = new DpsUniquelyVersioned(deps);
-        }
-        if (!this.ignoreTransitive) {
-            deps = new DpsEachWithoutTransitive(deps, this.transitiveStrategy);
         }
         return new SetOf<>(deps)
             .stream()

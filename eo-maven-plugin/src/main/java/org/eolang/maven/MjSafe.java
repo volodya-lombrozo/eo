@@ -372,15 +372,6 @@ abstract class MjSafe extends AbstractMojo {
     protected boolean ignoreRuntime;
 
     /**
-     * Fail resolution process on transitive dependencies.
-     *
-     * @checkstyle MemberNameCheck (10 lines)
-     * @checkstyle VisibilityModifierCheck (7 lines)
-     */
-    @Parameter(property = "eo.ignoreTransitive", required = true, defaultValue = "false")
-    protected boolean ignoreTransitive;
-
-    /**
      * Whether we should fail on warning.
      *
      * @checkstyle MemberNameCheck (10 lines)

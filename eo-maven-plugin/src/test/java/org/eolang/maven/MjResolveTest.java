@@ -11,7 +11,6 @@ import java.nio.file.Path;
 import java.util.Collections;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
-import org.cactoos.Func;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.hamcrest.io.FileMatchers;
@@ -25,7 +24,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
  * @since 0.1
  */
 @ExtendWith(MktmpResolver.class)
-@SuppressWarnings({"PMD.AvoidDuplicateLiterals", "PMD.TooManyMethods"})
+@SuppressWarnings("PMD.AvoidDuplicateLiterals")
 final class MjResolveTest {
 
     @Test
@@ -158,50 +157,6 @@ final class MjResolveTest {
             "The class file must exist, but it doesn't",
             maven.targetPath(),
             new ContainsFiles("**/eo-runtime-0.7.0.class")
-        );
-    }
-
-    @Test
-    void resolvesWithoutTransitiveDependencies(@Mktmp final Path temp) throws IOException {
-        final FakeMaven maven = new FakeMaven(temp);
-        maven.withHelloWorld()
-            .with("ignoreTransitive", false)
-            .with(
-                "transitiveStrategy",
-                (Func<Dep, Dependencies>) ignore -> new Dependencies.Fake(0)
-            )
-            .execute(new FakeMaven.Resolve());
-        MatcherAssert.assertThat(
-            "The class file must exist, but it doesn't",
-            maven.targetPath(),
-            new ContainsFiles("**/eo-runtime-*.class")
-        );
-    }
-
-    @Test
-    void throwsExceptionWithTransitiveDependency(@Mktmp final Path temp) {
-        final FakeMaven maven = new FakeMaven(temp);
-        final Dependency dependency = new Dependency();
-        dependency.setScope("compiled");
-        dependency.setGroupId("org.eolang");
-        dependency.setArtifactId("eo-transitive");
-        dependency.setVersion("0.1.0");
-        Assertions.assertThrows(
-            IllegalStateException.class,
-            () -> maven
-                .withProgram(
-                    "+rt jvm org.eolang:eo-foreign:0.22.1\n",
-                    "[] > foo /int"
-                )
-                .with("ignoreTransitive", false)
-                .with(
-                    "transitiveStrategy",
-                    (Func<Dependency, Iterable<Dependency>>) ignore -> Collections.singleton(
-                        dependency
-                    )
-                )
-                .execute(new FakeMaven.Resolve()),
-            "Expected an IllegalStateException exception when transitive dependency"
         );
     }
 
