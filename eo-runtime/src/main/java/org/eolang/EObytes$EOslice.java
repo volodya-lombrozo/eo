@@ -30,8 +30,8 @@ public final class EObytes$EOslice extends PhDefault implements Atom {
     }
 
     @Override
-    @SuppressWarnings("PMD.UnnecessaryLocalRule")
     public Phi lambda() {
+        final byte[] bytes = new Dataized(this.take(Phi.RHO)).take();
         final int start = Expect.at(this, "start")
             .that(phi -> new Dataized(phi).asNumber())
             .otherwise("must be a number")
@@ -49,12 +49,11 @@ public final class EObytes$EOslice extends PhDefault implements Atom {
             .otherwise("must be an integer")
             .must(integer -> integer >= 0)
             .otherwise("must be a positive integer")
-            .it();
-        return new Data.ToPhi(
-            Arrays.copyOfRange(
-                new Dataized(this.take(Phi.RHO)).take(),
-                start, start + length
+            .must(integer -> start + integer <= bytes.length)
+            .otherwise(
+                String.format("is out of bounds for bytes of size %d", bytes.length)
             )
-        );
+            .it();
+        return new Data.ToPhi(Arrays.copyOfRange(bytes, start, start + length));
     }
 }
