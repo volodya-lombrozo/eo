@@ -19,6 +19,11 @@ import org.twdata.maven.mojoexecutor.MojoExecutor;
  *
  * @since 0.1
  * @deprecated Use {@link CentralMaven} instead
+ * @todo #4989:30min Remove Central class and all its usages across the
+ *  repository. The class has been deprecated in favour of {@link CentralMaven}.
+ *  Find all references to {@link Central} (including {@link Central#EMPTY}),
+ *  replace them with the appropriate {@link CentralMaven} constructor,
+ *  then delete this class entirely.
  */
 @Deprecated
 final class Central implements BiConsumer<Dependency, Path> {
