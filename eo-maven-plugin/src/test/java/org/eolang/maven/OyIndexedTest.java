@@ -47,7 +47,7 @@ final class OyIndexedTest {
             "OyIndexed with fake index must contain stdout object, but it doesn't",
             new OyIndexed(
                 new Objectionary.Fake(),
-                new ObjectsIndex(() -> Collections.singleton(this.stdout()))
+                new ObjectsIndex(() -> Collections.singleton("io.stdout"))
             ).contains(this.stdout()),
             Matchers.is(true)
         );

@@ -172,11 +172,18 @@ final class OyRemote implements Objectionary {
          * @throws MalformedURLException in case of incorrect URL
          */
         public URL value(final String name) throws MalformedURLException {
+            final String prefix = "org.eolang.";
+            final String stripped;
+            if (name.startsWith(prefix)) {
+                stripped = name.substring(prefix.length());
+            } else {
+                stripped = name;
+            }
             return new URL(
                 String.format(
                     this.template,
                     this.hash.value(),
-                    name.replace(".", "/")
+                    stripped.replace(".", "/")
                 )
             );
         }

@@ -71,13 +71,20 @@ final class ObjectsIndex {
      * @throws Exception If something unexpected happened.
      */
     public boolean contains(final String name) throws Exception {
-        return this.objects.value().contains(name);
+        final String prefix = "org.eolang.";
+        final String stripped;
+        if (name.startsWith(prefix)) {
+            stripped = name.substring(prefix.length());
+        } else {
+            stripped = name;
+        }
+        return this.objects.value().contains(stripped);
     }
 
     /**
      * Converts object name to the format that is used in the objectionary.
-     * - "objects/org/eolang/array.eo" -> "org.eolang.array"
-     * - "tests/org/eolang/seq-tests.eo" -> "org.eolang.seq-tests"
+     * - "objects/array.eo" -> "array"
+     * - "objects/io/stdout.eo" -> "io.stdout"
      * @param name Object name in raw format.
      * @return Object name in objectionary format.
      */
