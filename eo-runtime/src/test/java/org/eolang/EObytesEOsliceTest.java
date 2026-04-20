@@ -48,6 +48,37 @@ final class EObytesEOsliceTest {
 
     @Test
     @SuppressWarnings("PMD.UnitTestContainsTooManyAsserts")
+    void throwsOnOutOfBoundsSlice() {
+        MatcherAssert.assertThat(
+            "error message is correct for out of bounds slice",
+            new UncheckedText(
+                new TextOf(
+                    Assertions.assertThrows(
+                        EOerror.ExError.class,
+                        () -> new Dataized(
+                            new PhWith(
+                                new PhWith(
+                                    new Data.ToPhi("hello")
+                                        .take("as-bytes")
+                                        .take("slice")
+                                        .copy(),
+                                    "start",
+                                    new Data.ToPhi(3)
+                                ),
+                                "len",
+                                new Data.ToPhi(10)
+                            )
+                        ).asString(),
+                        "doesnt throw on out of bounds slice"
+                    )
+                )
+            ).asString(),
+            Matchers.containsString("is out of bounds for bytes of size 5")
+        );
+    }
+
+    @Test
+    @SuppressWarnings("PMD.UnitTestContainsTooManyAsserts")
     void takesWrongSlice() {
         MatcherAssert.assertThat(
             "error message is correct",
