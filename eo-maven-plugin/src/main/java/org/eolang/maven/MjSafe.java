@@ -30,6 +30,7 @@ import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.BuildPluginManager;
+import org.eclipse.aether.RepositorySystem;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugins.annotations.Component;
@@ -72,6 +73,13 @@ abstract class MjSafe extends AbstractMojo {
      */
     @Component
     protected BuildPluginManager manager;
+
+    /**
+     * Maven Resolver repository system.
+     * @checkstyle VisibilityModifierCheck (5 lines)
+     */
+    @Component
+    protected RepositorySystem repoSystem;
 
     /**
      * Directory where classes are stored in target.
@@ -505,7 +513,9 @@ abstract class MjSafe extends AbstractMojo {
             try {
                 if (this.central == null) {
 //                    this.central = new Central(this.project, this.session, this.manager);
-                    this.central = new CentralDirect();
+//                    this.central = new CentralHttp();
+//                    this.central = new CentralDirect();
+                    this.central = new CentralMaven(this.repoSystem);
                 }
                 final long start = System.nanoTime();
                 this.execWithTimeout();
