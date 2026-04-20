@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -99,7 +100,7 @@ final class CentralMaven implements BiConsumer<Dependency, Path> {
      * @param sys Repository system, or {@code null} to build one automatically
      */
     CentralMaven(final RepositorySystem sys) {
-        this(sys == null ? new RepositorySystemSupplier().get() : sys, CentralMaven.LOCAL);
+        this(CentralMaven.nonNull(sys), CentralMaven.LOCAL);
     }
 
     /**
@@ -145,7 +146,7 @@ final class CentralMaven implements BiConsumer<Dependency, Path> {
 
     @Override
     public void accept(final Dependency dep, final Path dest) {
-        final String classifier = dep.getClassifier() == null ? "" : dep.getClassifier();
+        final String classifier = Objects.requireNonNullElse(dep.getClassifier(), "");
         final Artifact artifact;
         try {
             artifact = this.system.resolveArtifact(
@@ -209,6 +210,21 @@ final class CentralMaven implements BiConsumer<Dependency, Path> {
         final BiConsumer<? super Dependency, ? super Path> after
     ) {
         throw new UnsupportedOperationException("not implemented #andThen()");
+    }
+
+    /**
+     * Returns the given system if non-null, otherwise creates a fresh one.
+     * @param sys Repository system, or {@code null}
+     * @return Non-null repository system
+     */
+    private static RepositorySystem nonNull(final RepositorySystem sys) {
+        final RepositorySystem result;
+        if (sys == null) {
+            result = new RepositorySystemSupplier().get();
+        } else {
+            result = sys;
+        }
+        return result;
     }
 
     /**

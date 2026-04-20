@@ -9,6 +9,7 @@ import com.yegor256.MktmpResolver;
 import com.yegor256.WeAreOnline;
 import java.nio.file.Path;
 import java.util.Collections;
+import org.apache.maven.model.Dependency;
 import org.apache.maven.repository.internal.MavenRepositorySystemUtils;
 import org.eclipse.aether.DefaultRepositorySystemSession;
 import org.eclipse.aether.RepositorySystem;
@@ -31,21 +32,25 @@ import org.junit.jupiter.api.extension.ExtendWith;
 final class CentralMavenTest {
 
     @Test
-    void downloadsFromRemoteWhenNotInLocalRepository(@Mktmp final Path temp) {
+    void cachesArtifactInLocalRepositoryAfterDownload(@Mktmp final Path temp) {
         final Path local = temp.resolve("empty-local-repo");
-        final Path dest = temp.resolve("unpacked");
         new CentralMaven(local).accept(
-            new Dep()
-                .withGroupId("org.eolang")
-                .withArtifactId("eo-runtime")
-                .withVersion("0.7.0")
-                .get(),
-            dest
+            CentralMavenTest.runtime(),
+            temp.resolve("unpacked")
         );
         MatcherAssert.assertThat(
             "Artifact must be cached in the local repository after download",
             local.resolve("org/eolang/eo-runtime/0.7.0").toFile(),
             FileMatchers.anExistingDirectory()
+        );
+    }
+
+    @Test
+    void unpacksFilesFromMavenCentral(@Mktmp final Path temp) {
+        final Path dest = temp.resolve("unpacked");
+        new CentralMaven(temp.resolve("empty-local-repo")).accept(
+            CentralMavenTest.runtime(),
+            dest
         );
         MatcherAssert.assertThat(
             "Unpacked destination must contain files fetched from Maven Central",
@@ -58,11 +63,7 @@ final class CentralMavenTest {
     void resolvesWithDefaultConstructor(@Mktmp final Path temp) {
         final Path dest = temp.resolve("unpacked");
         new CentralMaven().accept(
-            new Dep()
-                .withGroupId("org.eolang")
-                .withArtifactId("eo-runtime")
-                .withVersion("0.7.0")
-                .get(),
+            CentralMavenTest.runtime(),
             dest
         );
         MatcherAssert.assertThat(
@@ -90,11 +91,13 @@ final class CentralMavenTest {
 
     @Test
     void resolvesWithInjectedComponents(@Mktmp final Path temp) {
-        final Path local = temp.resolve("local-repo");
         final RepositorySystem system = new RepositorySystemSupplier().get();
         final DefaultRepositorySystemSession session = MavenRepositorySystemUtils.newSession();
         session.setLocalRepositoryManager(
-            system.newLocalRepositoryManager(session, new LocalRepository(local.toFile()))
+            system.newLocalRepositoryManager(
+                session,
+                new LocalRepository(temp.resolve("local-repo").toFile())
+            )
         );
         final Path dest = temp.resolve("unpacked");
         new CentralMaven(
@@ -106,11 +109,7 @@ final class CentralMavenTest {
                 ).build()
             )
         ).accept(
-            new Dep()
-                .withGroupId("org.eolang")
-                .withArtifactId("eo-runtime")
-                .withVersion("0.7.0")
-                .get(),
+            CentralMavenTest.runtime(),
             dest
         );
         MatcherAssert.assertThat(
@@ -118,5 +117,13 @@ final class CentralMavenTest {
             dest.toFile().list(),
             Matchers.not(Matchers.emptyArray())
         );
+    }
+
+    private static Dependency runtime() {
+        return new Dep()
+            .withGroupId("org.eolang")
+            .withArtifactId("eo-runtime")
+            .withVersion("0.7.0")
+            .get();
     }
 }

@@ -18,6 +18,7 @@ import org.twdata.maven.mojoexecutor.MojoExecutor;
  * The abstraction of Maven Central.
  *
  * @since 0.1
+ * @deprecated Use {@link CentralMaven} instead
  */
 @Deprecated
 final class Central implements BiConsumer<Dependency, Path> {
