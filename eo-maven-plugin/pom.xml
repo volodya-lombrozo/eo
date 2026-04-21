@@ -14,6 +14,9 @@
   <packaging>maven-plugin</packaging>
   <name>eo-maven-plugin</name>
   <description>EO-to-Java Maven Plugin</description>
+  <properties>
+    <maven.resolver.version>1.9.27</maven.resolver.version>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>org.eolang</groupId>
@@ -76,6 +79,24 @@
       <groupId>com.jcabi</groupId>
       <artifactId>jcabi-xml</artifactId>
       <!-- version from parent POM -->
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.resolver</groupId>
+      <artifactId>maven-resolver-supplier</artifactId>
+      <version>${maven.resolver.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.resolver</groupId>
+      <artifactId>maven-resolver-api</artifactId>
+      <version>${maven.resolver.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-resolver-provider</artifactId>
+      <version>3.9.14</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>

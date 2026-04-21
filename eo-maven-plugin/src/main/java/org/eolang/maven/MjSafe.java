@@ -41,6 +41,7 @@ import org.cactoos.scalar.Sticky;
 import org.cactoos.scalar.Synced;
 import org.cactoos.scalar.Unchecked;
 import org.cactoos.set.SetOf;
+import org.eclipse.aether.RepositorySystem;
 import org.slf4j.impl.StaticLoggerBinder;
 
 /**
@@ -72,6 +73,13 @@ abstract class MjSafe extends AbstractMojo {
      */
     @Component
     protected BuildPluginManager manager;
+
+    /**
+     * Maven Resolver repository system.
+     * @checkstyle VisibilityModifierCheck (5 lines)
+     */
+    @Component
+    protected RepositorySystem system;
 
     /**
      * Directory where classes are stored in target.
@@ -495,7 +503,7 @@ abstract class MjSafe extends AbstractMojo {
         } else {
             try {
                 if (this.central == null) {
-                    this.central = new Central(this.project, this.session, this.manager);
+                    this.central = new CentralMaven(this.system);
                 }
                 final long start = System.nanoTime();
                 this.execWithTimeout();
