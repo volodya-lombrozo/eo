@@ -80,7 +80,7 @@ final class Cache {
      * @param target To file
      * @param tail Tail path in cache
      */
-    public void apply(final Path source, final Path target, final Path tail) {
+    void apply(final Path source, final Path target, final Path tail) {
         try {
             final String sha = this.sha(source);
             final Path hash = this.hash(tail);

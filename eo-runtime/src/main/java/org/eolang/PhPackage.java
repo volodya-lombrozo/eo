@@ -20,7 +20,7 @@ final class PhPackage implements Phi {
      * @checkstyle VisibilityModifierCheck (3 lines)
      * @checkstyle StaticVariableNameCheck (3 lines)
      */
-    public static final String GLOBAL = "Φ";
+    static final String GLOBAL = "Φ";
 
     /**
      * The name of the Java package.

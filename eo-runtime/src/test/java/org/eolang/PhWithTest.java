@@ -109,7 +109,7 @@ final class PhWithTest {
      * Dummy Phi.
      * @since 0.1.0
      */
-    public static final class Dummy extends PhDefault {
+    static final class Dummy extends PhDefault {
 
         /**
          * Ctor.

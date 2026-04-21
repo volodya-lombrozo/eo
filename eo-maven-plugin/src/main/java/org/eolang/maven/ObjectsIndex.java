@@ -70,7 +70,7 @@ final class ObjectsIndex {
      * @return True if object index contains the object.
      * @throws Exception If something unexpected happened.
      */
-    public boolean contains(final String name) throws Exception {
+    boolean contains(final String name) throws Exception {
         final String prefix = "org.eolang.";
         final String stripped;
         if (name.startsWith(prefix)) {

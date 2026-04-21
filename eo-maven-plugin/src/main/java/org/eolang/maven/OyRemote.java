@@ -165,13 +165,18 @@ final class OyRemote implements Objectionary {
             this.hash = hash;
         }
 
+        @Override
+        public String toString() {
+            return this.template;
+        }
+
         /**
          * URL for the program or directory.
          * @param name Fully qualified EO program as specified by {@link Place} or directory name
          * @return URL
          * @throws MalformedURLException in case of incorrect URL
          */
-        public URL value(final String name) throws MalformedURLException {
+        URL value(final String name) throws MalformedURLException {
             final String prefix = "org.eolang.";
             final String stripped;
             if (name.startsWith(prefix)) {
@@ -186,11 +191,6 @@ final class OyRemote implements Objectionary {
                     stripped.replace(".", "/")
                 )
             );
-        }
-
-        @Override
-        public String toString() {
-            return this.template;
         }
     }
 

@@ -678,7 +678,7 @@ final class PhDefaultTest {
      * Foo.
      * @since 0.1.0
      */
-    public static final class Foo extends PhDefault {
+    static final class Foo extends PhDefault {
         /**
          * Ctor.
          */
@@ -694,7 +694,7 @@ final class PhDefaultTest {
      * Dummy.
      * @since 0.1.0
      */
-    public static final class WithVoidPhi extends PhDefault {
+    static final class WithVoidPhi extends PhDefault {
         /**
          * Ctor.
          */
@@ -708,7 +708,7 @@ final class PhDefaultTest {
      * Counter.
      * @since 0.1.0
      */
-    public static final class Counter extends PhDefault {
+    static final class Counter extends PhDefault {
         /**
          * Count.
          */
@@ -738,7 +738,7 @@ final class PhDefaultTest {
      * Kid.
      * @since 0.1.0
      */
-    public static final class Kid extends PhDefault {
+    static final class Kid extends PhDefault {
         /**
          * Ctor.
          */
@@ -753,7 +753,7 @@ final class PhDefaultTest {
      * Endless Recursion.
      * @since 0.1.0
      */
-    public static final class EndlessRecursion extends PhDefault {
+    static final class EndlessRecursion extends PhDefault {
         /**
          * Count.
          */
@@ -787,7 +787,7 @@ final class PhDefaultTest {
      * Recursive Phi.
      * @since 0.1.0
      */
-    public static final class RecursivePhi extends PhDefault {
+    static final class RecursivePhi extends PhDefault {
         /**
          * Count.
          */
@@ -821,7 +821,7 @@ final class PhDefaultTest {
      * RecursivePhiViaNew.
      * @since 0.1.0
      */
-    public static final class RecursivePhiViaNew extends PhDefault {
+    static final class RecursivePhiViaNew extends PhDefault {
         /**
          * Count.
          */
