@@ -6,7 +6,7 @@
 
 [![mvn-linux](https://github.com/objectionary/eo/actions/workflows/mvn.yml/badge.svg)](https://github.com/objectionary/eo/actions/workflows/mvn.yml)
 [![PDD status](https://www.0pdd.com/svg?name=objectionary/eo)](https://www.0pdd.com/p?name=objectionary/eo)
-[![Maintainability](https://api.codeclimate.com/v1/badges/eaede7d027b1d9411a76/maintainability)](https://codeclimate.com/github/objectionary/eo/maintainability)
+[![Maintainability](https://qlty.sh/gh/objectionary/projects/eo/maintainability.svg)](https://qlty.sh/gh/objectionary/projects/eo)
 [![Maven Central](https://img.shields.io/maven-central/v/org.eolang/eo-parent.svg)](https://maven-badges.herokuapp.com/maven-central/org.eolang/eo-parent)
 [![codecov](https://codecov.io/gh/objectionary/eo/branch/master/graph/badge.svg)](https://codecov.io/gh/objectionary/eo)
 ![Lines-of-Code](https://raw.githubusercontent.com/objectionary/eo/gh-pages/loc-badge.svg)
