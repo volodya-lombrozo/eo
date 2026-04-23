@@ -16,7 +16,6 @@ import java.nio.file.Path;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.hamcrest.io.FileMatchers;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -27,12 +26,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
  * @todo #4538:30min Enable integration tests. These integration tests were disabled
  *  because we've moved EO objects from default `org.eolang` package to root package.
  *  These tests stopped working:
- *  - {@link MjAssembleIT#assemblesTogether(Path)}
- *  - {@link MjRegisterIT#removesOldForeignFile(Path)}
- *  - {@link MjRegisterIT#removesUnnecessaryPulledObjects(Path)}
- *  - {@link integration.JarIT#runsProgramFromJar(Path)}
- *  - {@link integration.JarIT#runsProgramWithPackageFromJar(Path)}
- *  - {@link integration.JarIT#runsProgramWithTwoObjects(Path)}
  *  - {@link integration.SnippetIT#runsAllSnippets(String, Path)}
  *  The most probable reason - most of the tests require downloading objects from objectionary,
  *  but since the objects were moved and not released when this todo is written, they are failed
@@ -42,7 +35,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @ExtendWith({WeAreOnline.class, MktmpResolver.class, MayBeSlow.class})
 final class MjAssembleIT {
 
-    @Disabled
     @Test
     @SuppressWarnings("PMD.UnitTestShouldIncludeAssert")
     void assemblesTogether(@Mktmp final Path temp) throws IOException {
