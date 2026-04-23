@@ -18,7 +18,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -104,7 +103,6 @@ final class MjRegisterIT {
         );
     }
 
-    @Disabled
     @Test
     @SuppressWarnings("PMD.UnitTestShouldIncludeAssert")
     void removesOldForeignFile(@Mktmp final Path temp) throws Exception {
@@ -165,7 +163,6 @@ final class MjRegisterIT {
         );
     }
 
-    @Disabled
     @Test
     @SuppressWarnings("PMD.UnitTestShouldIncludeAssert")
     void removesUnnecessaryPulledObjects(@Mktmp final Path temp) throws Exception {

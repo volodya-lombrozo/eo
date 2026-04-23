@@ -66,11 +66,11 @@ final class EoSourceRun implements Proc<Object> {
             .plugins()
             .append("org.codehaus.mojo", "exec-maven-plugin", "3.1.1")
             .execution("run")
-            .phase("test")
+            .phase("compile")
             .goals("java")
             .configuration()
             .set("mainClass", "org.eolang.Main")
             .set("arguments", args);
-        this.farea.exec("clean", "test");
+        this.farea.exec("clean", "compile");
     }
 }
