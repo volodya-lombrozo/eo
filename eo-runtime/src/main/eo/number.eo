@@ -112,7 +112,8 @@
   # The object rounds down the original `number` to the nearest
   # whole `number` that is less than or equal to it
   # and returns the result as `org.eolang.number`.
-  [] > floor ?
+  [] > floor
+    as-i64.as-number > @
 
   # Tests that less-than comparison returns true when first number is smaller.
   [] +> tests-int-less-true
@@ -351,6 +352,24 @@
       floor.
         13.div -5
       -2
+
+  # Tests that floor of a positive fractional number truncates toward zero.
+  [] +> tests-floor-positive-fraction
+    eq. > @
+      3.7.floor
+      3
+
+  # Tests that floor of a negative fractional number truncates toward zero.
+  [] +> tests-floor-negative-fraction
+    eq. > @
+      -3.7.floor
+      -3
+
+  # Tests that floor of a whole number returns the same number.
+  [] +> tests-floor-of-integer
+    eq. > @
+      42.floor
+      42
 
   # Tests that division result can be less than one.
   [] +> tests-div-less-than-one
