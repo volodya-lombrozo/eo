@@ -10,6 +10,8 @@ import com.yegor256.WeAreOnline;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.function.BiConsumer;
+import org.apache.maven.model.Dependency;
 import org.cactoos.set.SetOf;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -54,7 +56,12 @@ final class MjCleanTest {
             .with("placed", temp.resolve("list").toFile())
             .with("cache", temp.resolve("cache/parsed").toFile())
             .with("skipZeroVersions", true)
-            .with("central", Central.EMPTY)
+            .with(
+                "central",
+                (BiConsumer<Dependency, Path>) (dependency, path) -> {
+                    assert dependency != null;
+                }
+            )
             .execute(MjRegister.class)
             .execute(MjAssemble.class)
             .execute(MjClean.class);
