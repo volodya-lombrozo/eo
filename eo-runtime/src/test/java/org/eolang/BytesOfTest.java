@@ -148,11 +148,11 @@ final class BytesOfTest {
     }
 
     @Test
-    void doesNotSupportRightShift() {
+    void doesNotSupportNegativeBits() {
         Assertions.assertThrows(
             UnsupportedOperationException.class,
             () -> new BytesOf(Integer.MAX_VALUE).sshift(-1),
-            "Integer.MAX_VALUE << 1 should throw exception, but it didn't"
+            "sshift with negative bits should throw exception, but it didn't"
         );
     }
 }

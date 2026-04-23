@@ -86,7 +86,7 @@ final class BytesRaw implements Bytes {
     public Bytes sshift(final int bits) {
         if (bits < 0) {
             throw new UnsupportedOperationException(
-                "The \"right shift\" is NYI"
+                "The left sshift (negative bits) is not yet supported"
             );
         }
         final byte[] bytes = this.shift(bits).take();
