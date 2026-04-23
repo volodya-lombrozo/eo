@@ -25,7 +25,7 @@ import org.cactoos.text.Joined;
  * Resolves all required runtime dependencies: downloads from Maven Central,
  * unpacks and places them into the target directory.
  *
- * @since 0.1
+ * @since 0.63.0
  * @checkstyle ParameterNumberCheck (100 lines)
  */
 final class Resolve {
@@ -67,6 +67,11 @@ final class Resolve {
 
     /**
      * Maven project (may be null).
+     * @todo #4989:30min Remove MavenProject dependency from Resolve class.
+     *  Currently Resolve depends on MavenProject to find the eo-runtime version
+     *  declared in pom.xml. Extract that lookup into a plain {@code Optional<Dependency>}
+     *  parameter so Resolve has no Maven API dependency at all.
+     *  Don't forget to update MjResolve accordingly.
      */
     private final MavenProject project;
 

@@ -5,7 +5,6 @@
 package org.eolang.maven;
 
 import java.io.IOException;
-import org.apache.maven.model.Dependency;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 
@@ -70,15 +69,5 @@ public final class MjResolve extends MjSafe {
             this.resolveInCentral,
             this.ignoreVersionConflicts
         ).exec();
-    }
-
-    /**
-     * Checks if dependency is runtime.
-     * @param dep Dependency
-     * @return True if runtime.
-     */
-    @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
-    public static boolean isRuntime(final Dependency dep) {
-        return Resolve.isRuntime(dep);
     }
 }
