@@ -99,6 +99,7 @@ final class Resolve {
      * @param noconf Ignore version conflicts
      * @checkstyle ParameterNumberCheck (10 lines)
      */
+    @SuppressWarnings("PMD.ExcessiveParameterList")
     Resolve(
         final TjsForeign tjs,
         final Path tgt,
@@ -125,9 +126,8 @@ final class Resolve {
 
     /**
      * Execute the resolve process.
-     * @throws IOException If fails
      */
-    void exec() throws IOException {
+    void exec() {
         final Collection<Dep> deps = this.deps();
         if (deps.isEmpty()) {
             Logger.info(this, "No new dependencies unpacked");
@@ -203,7 +203,6 @@ final class Resolve {
         if (subs != null) {
             for (final File sub : subs) {
                 final String base = sub.getName();
-                Logger.info(this, "Base if %s", base);
                 if (base.equals(version)) {
                     continue;
                 }
@@ -285,7 +284,7 @@ final class Resolve {
      * @param dep Dependency
      * @return True if runtime
      */
-    static boolean isRuntime(final Dependency dep) {
+    private static boolean isRuntime(final Dependency dep) {
         return "org.eolang".equals(dep.getGroupId())
             && "eo-runtime".equals(dep.getArtifactId());
     }

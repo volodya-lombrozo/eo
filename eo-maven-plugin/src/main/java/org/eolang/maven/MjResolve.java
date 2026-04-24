@@ -4,7 +4,6 @@
  */
 package org.eolang.maven;
 
-import java.io.IOException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 
@@ -56,7 +55,7 @@ public final class MjResolve extends MjSafe {
     private boolean resolveInCentral = true;
 
     @Override
-    public void exec() throws IOException {
+    public void exec() {
         new Resolve(
             this.scopedTojos(),
             this.targetDir.toPath().resolve(MjResolve.DIR),
