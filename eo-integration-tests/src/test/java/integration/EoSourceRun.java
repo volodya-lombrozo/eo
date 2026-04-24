@@ -42,26 +42,6 @@ final class EoSourceRun implements Proc<Object> {
             .configuration()
             .set("failOnWarning", Boolean.FALSE.toString())
             .set("skipLinting", Boolean.TRUE.toString());
-        this.farea.dependencies().append(
-            "org.junit.jupiter",
-            "junit-jupiter-engine",
-            "5.10.3"
-        );
-        this.farea.dependencies().append(
-            "org.junit.jupiter",
-            "junit-jupiter-params",
-            "5.10.3"
-        );
-        this.farea.dependencies().append(
-            "org.junit.jupiter",
-            "junit-jupiter-api",
-            "5.10.3"
-        );
-        this.farea.dependencies().append(
-            "org.junit-pioneer",
-            "junit-pioneer",
-            "2.2.0"
-        );
         this.farea.build()
             .plugins()
             .append("org.codehaus.mojo", "exec-maven-plugin", "3.1.1")
