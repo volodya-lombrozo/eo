@@ -11,11 +11,6 @@ import org.cactoos.Proc;
 /**
  * Execution of EO source.
  * @since 0.56.3
- * @todo #4232:30min Conditionally add JUnit dependencies to integration tests.
- *  JUnit dependencies are needed for EO programs that contain test attributes
- *  (methods starting with '+'), but not for programs without tests. The XSL
- *  template now conditionally generates JUnit imports, but integration tests
- *  still need JUnit dependencies available when processing EO programs with tests.
  */
 final class EoSourceRun implements Proc<Object> {
 
