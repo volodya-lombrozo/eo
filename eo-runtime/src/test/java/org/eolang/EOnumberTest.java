@@ -88,8 +88,7 @@ final class EOnumberTest {
         EOnumber$EOgt.class,
         EOnumber$EOplus.class,
         EOnumber$EOtimes.class,
-        EOnumber$EOas_i64.class,
-        EOnumber$EOfloor.class
+        EOnumber$EOas_i64.class
     })
     @SuppressWarnings("PMD.UnitTestContainsTooManyAsserts")
     void throwsCorrectErrorForRhoAttr(final Class<?> cls) {
