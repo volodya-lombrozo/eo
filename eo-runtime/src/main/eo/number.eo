@@ -112,8 +112,20 @@
   # The object rounds down the original `number` to the nearest
   # whole `number` that is less than or equal to it
   # and returns the result as `org.eolang.number`.
+  # For non-finite values (`nan`, `+inf`, `-inf`) the input is returned
+  # unchanged. For finite inputs we truncate toward zero via `as-i64`,
+  # which matches mathematical floor for every value except negative
+  # non-integers — where the truncated result is strictly greater than
+  # the original, so we subtract `1` in that single case.
   [] > floor
-    as-i64.as-number > @
+    if. > @
+      ^.is-finite.not
+      ^
+      if.
+        trunc.gt ^
+        trunc.minus 1
+        trunc
+    ^.as-i64.as-number > trunc
 
   # Tests that less-than comparison returns true when first number is smaller.
   [] +> tests-int-less-true
