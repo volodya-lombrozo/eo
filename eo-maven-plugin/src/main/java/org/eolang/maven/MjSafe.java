@@ -26,10 +26,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.function.BiConsumer;
-import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.BuildPluginManager;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugins.annotations.Component;
@@ -59,20 +57,6 @@ abstract class MjSafe extends AbstractMojo {
      */
     @Parameter(defaultValue = "${project}", readonly = true)
     protected MavenProject project;
-
-    /**
-     * Maven session.
-     * @checkstyle VisibilityModifierCheck (5 lines)
-     */
-    @Parameter(defaultValue = "${session}", readonly = true)
-    protected MavenSession session;
-
-    /**
-     * Maven plugin manager.
-     * @checkstyle VisibilityModifierCheck (5 lines)
-     */
-    @Component
-    protected BuildPluginManager manager;
 
     /**
      * Maven Resolver repository system.
