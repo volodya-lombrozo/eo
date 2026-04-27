@@ -26,10 +26,10 @@ import org.cactoos.scalar.Unchecked;
  */
 final class DpsWithRuntime implements Dependencies {
 
-    /**
-     * Dependency downloaded by HTTP from Maven Central.
-     */
-    private static final Unchecked<Dep> MAVEN_DEPENDENCY = DpsWithRuntime.mavenDependency();
+//    /**
+//     * Dependency downloaded by HTTP from Maven Central.
+//     */
+//    private static final Unchecked<Dep> MAVEN_DEPENDENCY = DpsWithRuntime.mavenDependency();
 
     /**
      * All dependencies.
@@ -47,7 +47,7 @@ final class DpsWithRuntime implements Dependencies {
      * @param dlg Dependencies delegate.
      */
     DpsWithRuntime(final Iterable<Dep> dlg) {
-        this(dlg, DpsWithRuntime.MAVEN_DEPENDENCY);
+        this(dlg, new Unchecked<>(new RtCentral()));
     }
 
     /**
@@ -86,35 +86,33 @@ final class DpsWithRuntime implements Dependencies {
         return all.iterator();
     }
 
-    /**
-     * Runtime dependency source from Maven Central.
-     *
-     * @return Runtime dependency from Maven Central.
-     */
-    @RetryOnFailure(delay = 1L, unit = TimeUnit.SECONDS)
-    private static Unchecked<Dep> mavenDependency() {
-        final String url = String.format(
-            "https://repo.maven.apache.org/maven2/%s/maven-metadata.xml",
-            "org/eolang/eo-runtime"
-        );
-        return DpsWithRuntime.dependency(
-            () -> {
-                try {
-                    return new Xnav(new XMLDocument(new URL(url)).inner())
-                        .element("metadata")
-                        .element("versioning")
-                        .element("latest")
-                        .text()
-                        .get();
-                } catch (final IOException ex) {
-                    throw new IllegalStateException(
-                        String.format("Can't get eo-runtime dependency by the URL: %s", url),
-                        ex
-                    );
-                }
-            }
-        );
-    }
+//    /**
+//     * Runtime dependency source from Maven Central.
+//     *
+//     * @return Runtime dependency from Maven Central.
+//     */
+//    @RetryOnFailure(delay = 1L, unit = TimeUnit.SECONDS)
+//    private static Unchecked<Dep> mavenDependency() {
+//        final String url =
+//            "https://repo.maven.apache.org/maven2/org/eolang/eo-runtime/maven-metadata.xml";
+//        return DpsWithRuntime.dependency(
+//            () -> {
+//                try {
+//                    return new Xnav(new XMLDocument(new URL(url)).inner())
+//                        .element("metadata")
+//                        .element("versioning")
+//                        .element("latest")
+//                        .text()
+//                        .orElseThrow();
+//                } catch (final IOException ex) {
+//                    throw new IllegalStateException(
+//                        String.format("Can't get eo-runtime dependency by the URL: %s", url),
+//                        ex
+//                    );
+//                }
+//            }
+//        );
+//    }
 
     /**
      * Is it our runtime dep?
@@ -125,24 +123,24 @@ final class DpsWithRuntime implements Dependencies {
         return "org.eolang".equals(other.getGroupId())
             && "eo-runtime".equals(other.getArtifactId());
     }
-
-    /**
-     * Runtime dependency source.
-     *
-     * @param version Version of eo-runtime
-     * @return Maven Dependency.
-     */
-    private static Unchecked<Dep> dependency(final Supplier<String> version) {
-        return new Unchecked<>(
-            new Synced<>(
-                new Sticky<>(
-                    () -> new Dep()
-                        .withGroupId("org.eolang")
-                        .withArtifactId("eo-runtime")
-                        .withVersion(version.get())
-                        .withClassifier("")
-                )
-            )
-        );
-    }
+//
+//    /**
+//     * Runtime dependency source.
+//     *
+//     * @param version Version of eo-runtime
+//     * @return Maven Dependency.
+//     */
+//    private static Unchecked<Dep> dependency(final Supplier<String> version) {
+//        return new Unchecked<>(
+//            new Synced<>(
+//                new Sticky<>(
+//                    () -> new Dep()
+//                        .withGroupId("org.eolang")
+//                        .withArtifactId("eo-runtime")
+//                        .withVersion(version.get())
+//                        .withClassifier("")
+//                )
+//            )
+//        );
+//    }
 }
