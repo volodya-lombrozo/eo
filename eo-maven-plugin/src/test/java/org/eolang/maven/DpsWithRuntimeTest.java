@@ -65,7 +65,7 @@ final class DpsWithRuntimeTest {
     }
 
     @Test
-    void doesNotDuplicatesRuntimeOffline() {
+    void doesNotDuplicateRuntimeOffline() {
         MatcherAssert.assertThat(
             "Size of dependencies does not match with expected",
             new DpsWithRuntime(

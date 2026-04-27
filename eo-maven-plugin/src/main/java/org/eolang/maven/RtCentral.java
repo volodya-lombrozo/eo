@@ -20,7 +20,7 @@ import org.cactoos.scalar.Unchecked;
  * Runtime dependency downloaded from Maven Central.
  * @since 0.62.0
  */
-public final class RtCentral implements Scalar<Dep> {
+final class RtCentral implements Scalar<Dep> {
 
     /**
      * Dependency downloaded by HTTP from Maven Central.
@@ -37,27 +37,27 @@ public final class RtCentral implements Scalar<Dep> {
      *
      * @return Runtime dependency from Maven Central.
      */
-    @RetryOnFailure(delay = 1L, unit = TimeUnit.SECONDS)
     private static Unchecked<Dep> mavenDependency() {
         final String url =
             "https://repo.maven.apache.org/maven2/org/eolang/eo-runtime/maven-metadata.xml";
-        return RtCentral.dependency(
-            () -> {
-                try {
-                    return new Xnav(new XMLDocument(new URL(url)).inner())
-                        .element("metadata")
-                        .element("versioning")
-                        .element("latest")
-                        .text()
-                        .orElseThrow();
-                } catch (final IOException ex) {
-                    throw new IllegalStateException(
-                        String.format("Can't get eo-runtime dependency by the URL: %s", url),
-                        ex
-                    );
-                }
-            }
-        );
+        return RtCentral.dependency(() -> RtCentral.download(url));
+    }
+
+    @RetryOnFailure(delay = 1L, unit = TimeUnit.SECONDS)
+    private static String download(final String url) {
+        try {
+            return new Xnav(new XMLDocument(new URL(url)).inner())
+                .element("metadata")
+                .element("versioning")
+                .element("latest")
+                .text()
+                .orElseThrow();
+        } catch (final IOException ex) {
+            throw new IllegalStateException(
+                String.format("Can't get eo-runtime dependency by the URL: %s", url),
+                ex
+            );
+        }
     }
 
     /**
