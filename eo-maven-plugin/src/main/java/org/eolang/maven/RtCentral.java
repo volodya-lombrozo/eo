@@ -1,3 +1,7 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2016-2026 Objectionary.com
+ * SPDX-License-Identifier: MIT
+ */
 package org.eolang.maven;
 
 import com.github.lombrozo.xnav.Xnav;
@@ -12,6 +16,10 @@ import org.cactoos.scalar.Sticky;
 import org.cactoos.scalar.Synced;
 import org.cactoos.scalar.Unchecked;
 
+/**
+ * Runtime dependency downloaded from Maven Central.
+ * @since 0.62.0
+ */
 public final class RtCentral implements Scalar<Dep> {
 
     /**
@@ -51,7 +59,6 @@ public final class RtCentral implements Scalar<Dep> {
             }
         );
     }
-
 
     /**
      * Runtime dependency source.

@@ -11,14 +11,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.apache.maven.model.Dependency;
-import org.apache.maven.project.MavenProject;
+import org.cactoos.Scalar;
 import org.cactoos.iterable.Mapped;
-import org.cactoos.scalar.Unchecked;
 import org.cactoos.set.SetOf;
 import org.cactoos.text.Joined;
 
@@ -69,12 +67,7 @@ final class Resolve {
     /**
      * Maven runtime dependency supplier.
      */
-    private final Unchecked<Dep> runtime;
-
-    /**
-     * Resolve dependencies in central.
-     */
-    private final boolean incentral;
+    private final Scalar<Dep> runtime;
 
     /**
      * Ignore version conflicts.
@@ -91,11 +84,9 @@ final class Resolve {
      * @param jnadep Resolve default JNA
      * @param norun Ignore runtime
      * @param runtime EO runtime dependency supplier
-     * @param central Resolve in central
      * @param noconf Ignore version conflicts
      * @checkstyle ParameterNumberCheck (10 lines)
      */
-    @SuppressWarnings("PMD.ExcessiveParameterList")
     Resolve(
         final TjsForeign tjs,
         final Path tgt,
@@ -104,8 +95,7 @@ final class Resolve {
         final boolean zero,
         final boolean jnadep,
         final boolean norun,
-        final Unchecked<Dep> runtime,
-        final boolean central,
+        final Scalar<Dep> runtime,
         final boolean noconf
     ) {
         this.tojos = tjs;
@@ -116,7 +106,6 @@ final class Resolve {
         this.jna = jnadep;
         this.noruntime = norun;
         this.runtime = runtime;
-        this.incentral = central;
         this.noconflicts = noconf;
     }
 
@@ -232,21 +221,6 @@ final class Resolve {
             result = new DpsWithoutRuntime(result);
         } else {
             result = new DpsWithRuntime(result, this.runtime);
-//            final Optional<Dependency> runtime = this.runtimeFromPom();
-//            if (runtime.isPresent()) {
-//                result = new DpsWithRuntime(result, new Dep(runtime.get()));
-//                Logger.info(
-//                    this,
-//                    "Runtime dependency added from pom with version: %s",
-//                    runtime.get().getVersion()
-//                );
-//            } else {
-//                if (this.incentral) {
-//                    result = new DpsWithRuntime(result);
-//                } else {
-//                    result = new DpsOfflineRuntime(result);
-//                }
-//            }
         }
         if (!this.noconflicts) {
             result = new DpsUniquelyVersioned(result);
@@ -257,34 +231,6 @@ final class Resolve {
             .distinct()
             .collect(Collectors.toList());
     }
-
-//    /**
-//     * Runtime dependency from pom.xml.
-//     * @return Dependency if found
-//     */
-//    private Optional<Dependency> runtimeFromPom() {
-//        final Optional<Dependency> res;
-//        if (this.project == null) {
-//            res = Optional.empty();
-//        } else {
-//            res = this.project
-//                .getDependencies()
-//                .stream()
-//                .filter(Resolve::isRuntime)
-//                .findFirst();
-//        }
-//        return res;
-//    }
-
-//    /**
-//     * Checks if dependency is the eo-runtime artifact.
-//     * @param dep Dependency
-//     * @return True if runtime
-//     */
-//    private static boolean isRuntime(final Dependency dep) {
-//        return "org.eolang".equals(dep.getGroupId())
-//            && "eo-runtime".equals(dep.getArtifactId());
-//    }
 
     /**
      * Folder size in megabytes.

@@ -1,8 +1,16 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2016-2026 Objectionary.com
+ * SPDX-License-Identifier: MIT
+ */
 package org.eolang.maven;
 
 import com.jcabi.manifests.Manifests;
 import org.cactoos.Scalar;
 
+/**
+ * Offline runtime dependency from the current project manifest.
+ * @since 0.62.0
+ */
 final class RtOffline implements Scalar<Dep> {
 
     /**

@@ -6,7 +6,7 @@ package org.eolang.maven;
 
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
-import org.cactoos.scalar.Unchecked;
+import org.cactoos.Scalar;
 
 /**
  * Find all required runtime dependencies, download
@@ -66,19 +66,20 @@ public final class MjResolve extends MjSafe {
             this.resolveJna,
             this.ignoreRuntime,
             this.runtime(),
-            this.resolveInCentral,
             this.ignoreVersionConflicts
         ).exec();
     }
 
-    private Unchecked<Dep> runtime() {
-        final RtPom runtime = new RtPom(this.project);
-        if (runtime.isPresent()){
-            return new Unchecked<>(runtime);
+    private Scalar<Dep> runtime() {
+        final Scalar<Dep> result;
+        final RtPom pom = new RtPom(this.project);
+        if (pom.isPresent()) {
+            result = pom;
         } else if (this.resolveInCentral) {
-            return new Unchecked<>(new RtCentral());
+            result = new RtCentral();
         } else {
-            return new Unchecked<>(new RtOffline());
+            result = new RtOffline();
         }
+        return result;
     }
 }

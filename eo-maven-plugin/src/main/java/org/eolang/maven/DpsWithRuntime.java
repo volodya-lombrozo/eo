@@ -4,20 +4,11 @@
  */
 package org.eolang.maven;
 
-import com.github.lombrozo.xnav.Xnav;
-import com.jcabi.aspects.RetryOnFailure;
-import com.jcabi.xml.XMLDocument;
-import java.io.IOException;
-import java.net.URL;
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
 import org.apache.maven.model.Dependency;
 import org.cactoos.Scalar;
 import org.cactoos.list.ListOf;
-import org.cactoos.scalar.Sticky;
-import org.cactoos.scalar.Synced;
 import org.cactoos.scalar.Unchecked;
 
 /**
@@ -26,11 +17,6 @@ import org.cactoos.scalar.Unchecked;
  * @since 0.28.11
  */
 final class DpsWithRuntime implements Dependencies {
-
-//    /**
-//     * Dependency downloaded by HTTP from Maven Central.
-//     */
-//    private static final Unchecked<Dep> MAVEN_DEPENDENCY = DpsWithRuntime.mavenDependency();
 
     /**
      * All dependencies.
@@ -93,40 +79,12 @@ final class DpsWithRuntime implements Dependencies {
 
     @Override
     public Iterator<Dep> iterator() {
-        final List<Dep> all = new ListOf<>(this.delegate);
+        final Collection<Dep> all = new ListOf<>(this.delegate);
         if (all.stream().noneMatch(dep -> DpsWithRuntime.isRuntime(dep.get()))) {
             all.add(this.supplied.value());
         }
         return all.iterator();
     }
-
-//    /**
-//     * Runtime dependency source from Maven Central.
-//     *
-//     * @return Runtime dependency from Maven Central.
-//     */
-//    @RetryOnFailure(delay = 1L, unit = TimeUnit.SECONDS)
-//    private static Unchecked<Dep> mavenDependency() {
-//        final String url =
-//            "https://repo.maven.apache.org/maven2/org/eolang/eo-runtime/maven-metadata.xml";
-//        return DpsWithRuntime.dependency(
-//            () -> {
-//                try {
-//                    return new Xnav(new XMLDocument(new URL(url)).inner())
-//                        .element("metadata")
-//                        .element("versioning")
-//                        .element("latest")
-//                        .text()
-//                        .orElseThrow();
-//                } catch (final IOException ex) {
-//                    throw new IllegalStateException(
-//                        String.format("Can't get eo-runtime dependency by the URL: %s", url),
-//                        ex
-//                    );
-//                }
-//            }
-//        );
-//    }
 
     /**
      * Is it our runtime dep?
@@ -137,24 +95,4 @@ final class DpsWithRuntime implements Dependencies {
         return "org.eolang".equals(other.getGroupId())
             && "eo-runtime".equals(other.getArtifactId());
     }
-//
-//    /**
-//     * Runtime dependency source.
-//     *
-//     * @param version Version of eo-runtime
-//     * @return Maven Dependency.
-//     */
-//    private static Unchecked<Dep> dependency(final Supplier<String> version) {
-//        return new Unchecked<>(
-//            new Synced<>(
-//                new Sticky<>(
-//                    () -> new Dep()
-//                        .withGroupId("org.eolang")
-//                        .withArtifactId("eo-runtime")
-//                        .withVersion(version.get())
-//                        .withClassifier("")
-//                )
-//            )
-//        );
-//    }
 }
