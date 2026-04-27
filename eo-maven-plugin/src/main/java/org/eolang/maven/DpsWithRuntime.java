@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 import org.apache.maven.model.Dependency;
+import org.cactoos.Scalar;
 import org.cactoos.list.ListOf;
 import org.cactoos.scalar.Sticky;
 import org.cactoos.scalar.Synced;
@@ -61,6 +62,19 @@ final class DpsWithRuntime implements Dependencies {
         final Dep sup
     ) {
         this(dlg, new Unchecked<>(() -> sup));
+    }
+
+    /**
+     * The main constructor.
+     *
+     * @param dlg Dependencies delegate.
+     * @param sup Supplier of the eo-runtime dependency.
+     */
+    DpsWithRuntime(
+        final Iterable<Dep> dlg,
+        final Scalar<Dep> sup
+    ) {
+        this(dlg, new Unchecked<>(sup));
     }
 
     /**
