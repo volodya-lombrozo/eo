@@ -54,7 +54,6 @@ public final class MjTranspile extends MjSafe {
     private boolean transpileTests = true;
 
     @Override
-    @SuppressWarnings("PMD.UnnecessaryLocalRule")
     public void exec() throws IOException {
         new Transpile(
             this.scopedTojos().withXmir(),

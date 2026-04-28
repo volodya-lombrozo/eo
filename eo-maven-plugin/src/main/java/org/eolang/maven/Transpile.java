@@ -63,16 +63,6 @@ final class Transpile {
     static final String PRE = "5-pre-transpile";
 
     /**
-     * Cache directory for transpiled sources.
-     */
-    private static final String CACHE = "transpiled";
-
-    /**
-     * Java extension.
-     */
-    private static final String JAVA = "java";
-
-    /**
      * Parsing train with XSLs.
      */
     static final Train<Shift> TRAIN = new TrFull(
@@ -97,6 +87,16 @@ final class Transpile {
     );
 
     /**
+     * Cache directory for transpiled sources.
+     */
+    private static final String CACHE = "transpiled";
+
+    /**
+     * Java extension.
+     */
+    private static final String JAVA = "java";
+
+    /**
      * XMIR sources to transpile.
      */
     private final Collection<TjForeign> sources;
@@ -113,26 +113,31 @@ final class Transpile {
 
     /**
      * Whether to add the generated directory to Maven's compile source roots.
+     * @checkstyle MemberNameCheck (5 lines)
      */
     private final boolean addSourcesRoot;
 
     /**
      * Target directory.
+     * @checkstyle MemberNameCheck (5 lines)
      */
     private final Path targetDir;
 
     /**
      * Generated sources directory.
+     * @checkstyle MemberNameCheck (5 lines)
      */
     private final Path generatedDir;
 
     /**
      * Base cache directory.
+     * @checkstyle MemberNameCheck (5 lines)
      */
     private final Path cacheDir;
 
     /**
      * Whether caching is enabled.
+     * @checkstyle MemberNameCheck (5 lines)
      */
     private final boolean cacheEnabled;
 
@@ -143,16 +148,20 @@ final class Transpile {
 
     /**
      * Whether to track transformation steps into intermediate XMIR files.
+     * @checkstyle MemberNameCheck (7 lines)
      */
+    @SuppressWarnings("PMD.LongVariable")
     private final boolean trackTransformationSteps;
 
     /**
      * Whether to transpile tests.
+     * @checkstyle MemberNameCheck (5 lines)
      */
     private final boolean transpileTests;
 
     /**
      * File where XSL measurements are stored.
+     * @checkstyle MemberNameCheck (5 lines)
      */
     private final Path xslMeasures;
 
@@ -171,6 +180,7 @@ final class Transpile {
      * @param measures Path to the file where XSL measurements are stored
      * @checkstyle ParameterNumberCheck (15 lines)
      */
+    @SuppressWarnings("PMD.ExcessiveParameterList")
     Transpile(
         final Collection<TjForeign> srcs,
         final MavenProject prj,
