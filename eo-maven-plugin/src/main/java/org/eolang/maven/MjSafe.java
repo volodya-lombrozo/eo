@@ -5,9 +5,6 @@
 package org.eolang.maven;
 
 import com.jcabi.log.Logger;
-import com.yegor256.xsline.Shift;
-import com.yegor256.xsline.TrLambda;
-import com.yegor256.xsline.Train;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
@@ -541,41 +538,6 @@ abstract class MjSafe extends AbstractMojo {
         return new TjsForeign(
             () -> Catalogs.INSTANCE.make(this.foreign.toPath(), this.foreignFormat),
             () -> "compile"
-        );
-    }
-
-    /**
-     * Make a measured train from another train.
-     * @param train The train
-     * @return Measured train
-     */
-    protected final Train<Shift> measured(final Train<Shift> train) {
-        if (this.xslMeasures.getParentFile().mkdirs()) {
-            Logger.debug(this, "Directory created for %[file]s", this.xslMeasures);
-        }
-        if (!this.xslMeasures.getParentFile().exists()) {
-            throw new IllegalArgumentException(
-                String.format(
-                    "For some reason, the directory %s is absent, can't write measures to %s",
-                    this.xslMeasures.getParentFile(),
-                    this.xslMeasures
-                )
-            );
-        }
-        if (this.xslMeasures.isDirectory()) {
-            throw new IllegalArgumentException(
-                String.format(
-                    "This is not a file but a directory, can't write to it: %s",
-                    this.xslMeasures
-                )
-            );
-        }
-        return new TrLambda(
-            train,
-            shift -> new StMeasured(
-                shift,
-                this.xslMeasures.toPath()
-            )
         );
     }
 

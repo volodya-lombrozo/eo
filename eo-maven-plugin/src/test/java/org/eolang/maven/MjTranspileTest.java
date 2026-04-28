@@ -39,6 +39,10 @@ import org.junit.jupiter.params.ParameterizedTest;
  * Test case for {@link MjTranspile}.
  *
  * @since 0.1
+ * @todo #5061:60min Review all disabled tests in this class.
+ *  There are several tests annotated with {@link org.junit.jupiter.api.Disabled}.
+ *  Each one should be investigated to determine whether it is still relevant
+ *  and either re-enabled (with any necessary fixes) or removed.
  */
 @SuppressWarnings({
     "PMD.TooManyMethods",
@@ -139,7 +143,7 @@ final class MjTranspileTest {
                 .result(),
             Matchers.not(
                 Matchers.allOf(
-                    Matchers.hasKey(String.format("target/%s/foo/x/main.xmir", MjTranspile.DIR)),
+                    Matchers.hasKey(String.format("target/%s/foo/x/main.xmir", Transpile.DIR)),
                     Matchers.hasKey("target/generated/EOcom/EOexample/EOfoo.java")
                 )
             )
@@ -224,7 +228,7 @@ final class MjTranspileTest {
             .result();
         final Path java = res.get(this.compiled);
         final Path xmir = maven.targetPath().resolve(
-            String.format("%s/foo/x/main.xmir", MjTranspile.DIR)
+            String.format("%s/foo/x/main.xmir", Transpile.DIR)
         );
         MatcherAssert.assertThat(
             "The Java file should exist after transpile",
