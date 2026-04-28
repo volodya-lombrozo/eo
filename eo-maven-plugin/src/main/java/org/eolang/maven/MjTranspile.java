@@ -67,7 +67,7 @@ public final class MjTranspile extends MjSafe {
             this.plugin.getVersion(),
             this.trackTransformationSteps,
             this.transpileTests,
-            this.measured(Transpile.TRAIN)
+            this.xslMeasures.toPath()
         ).exec();
     }
 }

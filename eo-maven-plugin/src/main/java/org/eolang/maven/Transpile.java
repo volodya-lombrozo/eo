@@ -14,6 +14,7 @@ import com.yegor256.xsline.StClasspath;
 import com.yegor256.xsline.TrClasspath;
 import com.yegor256.xsline.TrDefault;
 import com.yegor256.xsline.TrJoined;
+import com.yegor256.xsline.TrLambda;
 import com.yegor256.xsline.Train;
 import com.yegor256.xsline.Xsline;
 import java.io.IOException;
@@ -64,7 +65,7 @@ final class Transpile {
     /**
      * Cache directory for transpiled sources.
      */
-    static final String CACHE = "transpiled";
+    private static final String CACHE = "transpiled";
 
     /**
      * Java extension.
@@ -102,6 +103,11 @@ final class Transpile {
 
     /**
      * Maven project (used to register generated source roots).
+     * @todo #5061:30min Remove MavenProject dependency from Transpile class.
+     *  Currently Transpile depends on MavenProject to register generated source roots,
+     *  which prevents using it outside of a Maven environment.
+     *  The source-root registration should be moved back to MjTranspile,
+     *  leaving Transpile free of any Maven coupling.
      */
     private final MavenProject project;
 
@@ -146,9 +152,9 @@ final class Transpile {
     private final boolean transpileTests;
 
     /**
-     * Measured XSL transformation train.
+     * File where XSL measurements are stored.
      */
-    private final Train<Shift> train;
+    private final Path xslMeasures;
 
     /**
      * Constructor.
@@ -162,7 +168,7 @@ final class Transpile {
      * @param ver Plugin version string
      * @param tracking Whether to track transformation steps
      * @param tests Whether to transpile tests
-     * @param measured Measured XSL transformation train
+     * @param measures Path to the file where XSL measurements are stored
      * @checkstyle ParameterNumberCheck (15 lines)
      */
     Transpile(
@@ -176,7 +182,7 @@ final class Transpile {
         final String ver,
         final boolean tracking,
         final boolean tests,
-        final Train<Shift> measured
+        final Path measures
     ) {
         this.sources = srcs;
         this.project = prj;
@@ -188,7 +194,7 @@ final class Transpile {
         this.version = ver;
         this.trackTransformationSteps = tracking;
         this.transpileTests = tests;
-        this.train = measured;
+        this.xslMeasures = measures;
     }
 
     /**
@@ -297,6 +303,39 @@ final class Transpile {
     }
 
     /**
+     * Wrap a train with XSL execution time measurements.
+     * @param base The train to wrap
+     * @return Measured train
+     */
+    private Train<Shift> measured(final Train<Shift> base) {
+        final Path parent = this.xslMeasures.getParent();
+        if (parent.toFile().mkdirs()) {
+            Logger.debug(this, "Directory created for %[file]s", this.xslMeasures);
+        }
+        if (!Files.exists(parent)) {
+            throw new IllegalArgumentException(
+                String.format(
+                    "For some reason, the directory %s is absent, can't write measures to %s",
+                    parent,
+                    this.xslMeasures
+                )
+            );
+        }
+        if (Files.isDirectory(this.xslMeasures)) {
+            throw new IllegalArgumentException(
+                String.format(
+                    "This is not a file but a directory, can't write to it: %s",
+                    this.xslMeasures
+                )
+            );
+        }
+        return new TrLambda(
+            base,
+            shift -> new StMeasured(shift, this.xslMeasures)
+        );
+    }
+
+    /**
      * Build XSL transformation function for a source file.
      * If {@code trackTransformationSteps} is {@code true} - creates a new {@link Xsline}
      * for every XMIR in purpose of thread safety.
@@ -304,11 +343,12 @@ final class Transpile {
      * @return XSL transformation function
      */
     private Function<XML, XML> transpilation(final Path source) {
+        final Train<Shift> measured = this.measured(Transpile.TRAIN);
         final Function<XML, XML> func;
         if (this.trackTransformationSteps) {
             func = xml -> new Xsline(
                 new TrSpy(
-                    this.train,
+                    measured,
                     new StickyFunc<>(
                         doc -> new Place(
                             new OnDetailed(new OnDefault(doc), source).get()
@@ -317,7 +357,7 @@ final class Transpile {
                 )
             ).pass(xml);
         } else {
-            func = new Xsline(this.train)::pass;
+            func = new Xsline(measured)::pass;
         }
         return func;
     }
