@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
@@ -22,12 +21,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import java.util.function.BiConsumer;
-import org.apache.maven.model.Dependency;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
-import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Settings;
@@ -36,7 +32,6 @@ import org.cactoos.scalar.Sticky;
 import org.cactoos.scalar.Synced;
 import org.cactoos.scalar.Unchecked;
 import org.cactoos.set.SetOf;
-import org.eclipse.aether.RepositorySystem;
 import org.slf4j.impl.StaticLoggerBinder;
 
 /**
@@ -54,13 +49,6 @@ abstract class MjSafe extends AbstractMojo {
      */
     @Parameter(defaultValue = "${project}", readonly = true)
     protected MavenProject project;
-
-    /**
-     * Maven Resolver repository system.
-     * @checkstyle VisibilityModifierCheck (5 lines)
-     */
-    @Component
-    protected RepositorySystem system;
 
     /**
      * Directory where classes are stored in target.
@@ -415,14 +403,6 @@ abstract class MjSafe extends AbstractMojo {
     );
 
     /**
-     * The central.
-     *
-     * @checkstyle MemberNameCheck (7 lines)
-     * @checkstyle VisibilityModifierCheck (5 lines)
-     */
-    protected BiConsumer<Dependency, Path> central;
-
-    /**
      * The Git hash to pull objects from.
      * If not set, will be computed from {@code tag} field.
      * @checkstyle VisibilityModifierCheck (5 lines)
@@ -483,9 +463,6 @@ abstract class MjSafe extends AbstractMojo {
             }
         } else {
             try {
-                if (this.central == null) {
-                    this.central = new CentralMaven(this.system);
-                }
                 final long start = System.nanoTime();
                 this.execWithTimeout();
                 if (Logger.isDebugEnabled(this)) {
