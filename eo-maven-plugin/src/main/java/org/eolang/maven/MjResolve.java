@@ -7,9 +7,9 @@ package org.eolang.maven;
 import java.nio.file.Path;
 import java.util.function.BiConsumer;
 import org.apache.maven.model.Dependency;
-import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.cactoos.Scalar;
 import org.eclipse.aether.RepositorySystem;
 
@@ -46,17 +46,17 @@ public final class MjResolve extends MjSafe {
     static final String DIR = "4-resolve";
 
     /**
+     * Maven Resolver repository system.
+     */
+    @Parameter
+    private RepositorySystem system;
+
+    /**
      * The central.
      *
      * @checkstyle MemberNameCheck (5 lines)
      */
-    protected BiConsumer<Dependency, Path> central;
-
-    /**
-     * Maven Resolver repository system.
-     */
-    @Component
-    private RepositorySystem system;
+    private BiConsumer<Dependency, Path> central;
 
     /**
      * Resolve default JNA dependency or not.
