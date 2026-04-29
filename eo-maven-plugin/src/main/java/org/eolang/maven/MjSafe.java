@@ -24,6 +24,7 @@ import java.util.concurrent.TimeoutException;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
+import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Settings;
@@ -32,6 +33,7 @@ import org.cactoos.scalar.Sticky;
 import org.cactoos.scalar.Synced;
 import org.cactoos.scalar.Unchecked;
 import org.cactoos.set.SetOf;
+import org.eclipse.aether.RepositorySystem;
 import org.slf4j.impl.StaticLoggerBinder;
 
 /**
@@ -49,6 +51,16 @@ abstract class MjSafe extends AbstractMojo {
      */
     @Parameter(defaultValue = "${project}", readonly = true)
     protected MavenProject project;
+
+    /**
+     * Maven Resolver repository system.
+     * Do NOT move this field to a subclass: it is used in both
+     * {@link MjResolve} and {@link MjCompile} (indirectly), so it
+     * must be injected once here in the base class.
+     * @checkstyle VisibilityModifierCheck (5 lines)
+     */
+    @Component
+    protected RepositorySystem system;
 
     /**
      * Directory where classes are stored in target.

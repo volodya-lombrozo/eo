@@ -9,9 +9,7 @@ import java.util.function.BiConsumer;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
-import org.apache.maven.plugins.annotations.Parameter;
 import org.cactoos.Scalar;
-import org.eclipse.aether.RepositorySystem;
 
 /**
  * Find all required runtime dependencies, download
@@ -44,12 +42,6 @@ public final class MjResolve extends MjSafe {
      * The directory where to resolve to.
      */
     static final String DIR = "4-resolve";
-
-    /**
-     * Maven Resolver repository system.
-     */
-    @Parameter
-    private RepositorySystem system;
 
     /**
      * The central.
