@@ -46,17 +46,17 @@ public final class MjResolve extends MjSafe {
     static final String DIR = "4-resolve";
 
     /**
-     * Maven Resolver repository system.
-     */
-    @Component
-    private RepositorySystem system;
-
-    /**
      * The central.
      *
      * @checkstyle MemberNameCheck (5 lines)
      */
-    private BiConsumer<Dependency, Path> central;
+    protected BiConsumer<Dependency, Path> central;
+
+    /**
+     * Maven Resolver repository system.
+     */
+    @Component
+    private RepositorySystem system;
 
     /**
      * Resolve default JNA dependency or not.
